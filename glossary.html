@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+        <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+            <div class="container mx-auto">
+                <!-- Desktop and Mobile header -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                        </a>
+                    </div>
+                    <!-- Burger Menu Button -->
+                    <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <ul class="flex items-center space-x-6">
+                            <li class="group relative">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="group relative">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    About us
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Services
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Resources Center
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                                <span class="text-[#BF9874]">|</span>
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                            </div>
+                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                    <ul class="flex flex-col space-y-4">
+                        <li class="group">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Home
+                            </a>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Contact Us
+                            </a>
+                        </li>
+                        <div class="flex items-center space-x-2 py-2 text-base">
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                            <span class="text-[#BF9874]">|</span>
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                        </div>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pt-32 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-white">
+        <div class="container mx-auto px-4">
+        <h2 class="text-[40px] sm:text-[50px] md:text-[60px] lg:text-[78px] leading-[1.1] font-neue-extrabold text-center mb-8 sm:mb-10 lg:mb-12 text-[#041B44] tracking-wide">GLOSSARY</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+          <!-- Article Card 1 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+            <img src="images/blog.png" alt="Article 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+            <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+          </div>
+          <!-- Article Card 2 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+              <img src="images/investor.png" alt="Article 2" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+              <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+          </div>
+          <!-- Article Card 3 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+            <img src="images/blog.png" alt="Article 3" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+            <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+          </div>
+          <!-- Article Card 4 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+            <img src="images/blog.png" alt="Article 4" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+            <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+          </div>
+          <!-- Article Card 5 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+            <img src="images/investor.png" alt="Article 5" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+            <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+          </div>
+          <!-- Article Card 6 -->
+          <div class="bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg">
+            <img src="images/blog.png" alt="Article 6" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+            <div class="p-4 sm:p-5">
+              <p class="text-[14px] sm:text-[15px] font-['Poppins'] text-[#041B44] mb-3 sm:mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique...</p>
+              <a href="aricles-innerpage.html" class="text-[#D4AF37] text-[14px] sm:text-[15.07px] font-['Poppins'] font-regular hover:underline">Learn More...</a>
+            </div>
+      </div>
+    </section>
+
+    <footer class="bg-[#041B44] text-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Logo for mobile -->
+            <div class="block md:hidden mb-6">
+                <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+            </div>
+            
+            <!-- Mobile navigation accordion -->
+            <div class="md:hidden">
+                <!-- Home dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services & Programs dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Follow Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="hidden dropdown-content pb-4">
+                        <div class="flex space-x-4 mb-6 pt-2">
+                            <a href="#" class="text-white">
+                                <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop footer - keep existing code -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- ... existing code for desktop ... -->
+                <!-- Column 1: Home -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Services & Programs -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Follow Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+            <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                    <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            
+            </div>
+            
+            <!-- Newsletter subscribe -->
+            <div class="mt-6 mb-10 md:w-[50%]">
+                <div class="flex flex-row gap-2">
+                    <input 
+                        type="email" 
+                        placeholder="Subscribe to Our Newsletter" 
+                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                    >
+                    <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                        REQUEST A MEETING
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                ADGM Financial Regulated Company, FSP no. 220131
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+            </div>
+            <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+            <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                    ADGM Financial Regulated Company, FSP no. 220131
+                </div>
+                <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                    © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                </div>
+                <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                    <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+<script src="index.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.getElementById('burger-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            burgerMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Carousel functionality
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            
+            let currentIndex = 0;
+            const totalItems = carouselItems.length;
+            
+            // Initial setup
+            function setupCarousel() {
+                // On mobile, show only one item
+                if (window.innerWidth < 768) {
+                    carouselItems.forEach((item, index) => {
+                        item.style.display = index === currentIndex ? 'block' : 'none';
+                    });
+                    // Show/hide navigation buttons based on current index
+                    prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    nextBtn.style.opacity = currentIndex === totalItems - 1 ? '0.5' : '1';
+                } else {
+                    // On desktop, show both items
+                    carouselItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    prevBtn.style.opacity = '0.5';
+                    nextBtn.style.opacity = '0.5';
+                }
+            }
+            
+            // Run initial setup
+            setupCarousel();
+            
+            prevBtn.addEventListener('click', function() {
+                if (window.innerWidth < 768 && currentIndex > 0) {
+                    currentIndex--;
+                    setupCarousel();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (window.innerWidth < 768 && currentIndex < totalItems - 1) {
+                    currentIndex++;
+                    setupCarousel();
+                }
+            });
+            
+            // Update carousel on window resize
+            window.addEventListener('resize', setupCarousel);
+
+            // NEW: Steps Carousel Functionality - Simplified
+            const stepsPrevBtn = document.getElementById('steps-prev-btn');
+            const stepsNextBtn = document.getElementById('steps-next-btn');
+            const stepsItems = document.querySelectorAll('.steps-item');
+            
+            let currentStepIndex = 0;
+            const totalSteps = stepsItems.length;
+            
+            // Add CSS styles for the carousel
+            const style = document.createElement('style');
+            style.textContent = `
+                .steps-item {
+                    transition: all 0.3s ease-in-out;
+                }
+                .number-badge {
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Function to update the carousel display
+            function updateStepsCarousel() {
+                // For mobile view (one card at a time)
+                if (window.innerWidth < 768) {
+                    stepsItems.forEach((item, index) => {
+                        // Only show the current step on mobile
+                        if (index === currentStepIndex) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                } 
+                // For desktop view (three cards at a time)
+                else {
+                    stepsItems.forEach((item, index) => {
+                        // Show first three items on desktop
+                        if (index >= currentStepIndex && index < currentStepIndex + 3) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                }
+                
+                // Update the navigation buttons
+                stepsPrevBtn.style.opacity = currentStepIndex === 0 ? '0.5' : '1';
+                stepsPrevBtn.style.cursor = currentStepIndex === 0 ? 'default' : 'pointer';
+                
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                stepsNextBtn.style.opacity = currentStepIndex >= maxIndex ? '0.5' : '1';
+                stepsNextBtn.style.cursor = currentStepIndex >= maxIndex ? 'default' : 'pointer';
+            }
+            
+            // Initialize the carousel
+            updateStepsCarousel();
+            
+            // Handle previous button click
+            stepsPrevBtn.addEventListener('click', function() {
+                if (currentStepIndex > 0) {
+                    currentStepIndex--;
+                    updateStepsCarousel();
+                }
+            });
+            
+            // Handle next button click
+            stepsNextBtn.addEventListener('click', function() {
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                if (currentStepIndex < maxIndex) {
+                    currentStepIndex++;
+                    updateStepsCarousel();
+                }
+            });
+            
+            // Update on window resize
+            window.addEventListener('resize', function() {
+                // Reset the index if needed
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                if (currentStepIndex > maxIndex) {
+                    currentStepIndex = maxIndex;
+                }
+                updateStepsCarousel();
+            });
+        });
+    </script>
+    
+</body>
+</html>

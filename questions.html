@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+      <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+          <div class="container mx-auto">
+              <!-- Desktop and Mobile header -->
+              <div class="flex justify-between items-center">
+                  <div>
+                      <a href="index.html">
+                          <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                      </a>
+                  </div>
+                  <!-- Burger Menu Button -->
+                  <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                      <i class="fas fa-bars text-2xl"></i>
+                  </button>
+                  <!-- Desktop Menu -->
+                  <div class="hidden lg:flex items-center space-x-6">
+                      <ul class="flex items-center space-x-6">
+                          <li class="group relative">
+                              <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                  Home
+                              </a>
+                          </li>
+                          <li class="group relative">
+                              <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                  About us
+                                  <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                              </a>
+                              <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                  <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                  <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                              </div>
+                          </li>
+                          <li class="group relative">
+                              <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                  Services
+                                  <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                              </a>
+                              <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                  <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                  <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                  <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                  <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                              </div>
+                          </li>
+                          <li class="group relative">
+                              <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                  Resources Center
+                                  <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                              </a>
+                              <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                  <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                  <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                  <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                  <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                  <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                              </div>
+                          </li>
+                          <li class="group relative">
+                              <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                  Contact Us
+                              </a>
+                          </li>
+                          <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                              <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                              <span class="text-[#BF9874]">|</span>
+                              <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                          </div>
+                          <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <!-- Mobile Menu -->
+              <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                  <ul class="flex flex-col space-y-4">
+                      <li class="group">
+                          <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                              Home
+                          </a>
+                      </li>
+                      <li class="group">
+                          <div class="flex items-center justify-between">
+                              <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                              <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                          </div>
+                          <div class="hidden pl-4 mt-2">
+                              <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                          </div>
+                      </li>
+                      <li class="group">
+                          <div class="flex items-center justify-between">
+                              <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                              <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                          </div>
+                          <div class="hidden pl-4 mt-2">
+                              <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                              <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                              <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                              <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                          </div>
+                      </li>
+                      <li class="group">
+                          <div class="flex items-center justify-between">
+                              <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                              <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                          </div>
+                          <div class="hidden pl-4 mt-2">
+                              <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                              <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                              <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                              <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                              <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                          </div>
+                      </li>
+                      <li class="group">
+                          <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                              Contact Us
+                          </a>
+                      </li>
+                      <div class="flex items-center space-x-2 py-2 text-base">
+                          <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                          <span class="text-[#BF9874]">|</span>
+                          <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                      </div>
+                      <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+    <section class="bg-navy-900 text-white h-screen md:h-[70vh] relative">
+        <div class="relative overflow-hidden h-full">
+            <div class="flex flex-col h-full">
+                <div class="flex transition-transform duration-500 ease-in-out h-full">
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <!-- Desktop background -->
+                            <img src="images/resource-bg.png" alt="Wealth Management" class="hidden md:block w-full h-full object-cover"/>
+                            <!-- Mobile background -->
+                            <img src="images/resource-bg.png" alt="Wealth Management" class="block md:hidden w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-[120vh] md:h-[90vh] flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[45px] xl:text-[78px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">Q&A</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF]/70 font-['Poppins'] font-regular">Explore our comprehensive Q&A for all your wealth <br class="hidden sm:block"/>Advisory questions.</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">REQUEST A MEETING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#041B44] text-white py-20 px-4 min-h-screen flex items-center" style="background: url('images/faq-bg.png') center/cover no-repeat;">
+      <div class="max-w-5xl mx-auto w-full">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-neue-extrabold mb-2 tracking-wide">FREQUENTLY ASKED QUESTIONS</h2>
+          <p class="text-white/70 text-lg leading-relaxed">Answers to Common Inquiries<br>About Our Services</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 [&>div]:space-y-10">
+          <!-- Column 1 -->
+          <div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What is Hauberk Capital Wealth Advisory?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Hauberk Capital Wealth Advisory is a premier financial advisory service that provides personalized wealth management solutions. We offer comprehensive financial planning, investment management, and advisory services tailored to meet the unique needs of high-net-worth individuals and families.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What types of accounts does Hauberk Capital manage?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Hauberk Capital manages a wide range of account types including individual and joint investment accounts, retirement accounts (IRAs, 401(k) rollovers), trust accounts, corporate accounts, and family office services. We tailor our approach to each client's specific financial situation and goals.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How does Hauberk Capital protect my personal information?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>We employ industry-leading security measures to protect your personal information, including encryption, secure servers, and strict access controls. Our privacy policy ensures that your information is never shared with unauthorized third parties, and we regularly update our security protocols to address emerging threats.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How often will I receive updates on my investments?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Clients receive comprehensive quarterly performance reports, but you can access your account information 24/7 through our secure client portal. Additionally, your dedicated advisor will schedule regular review meetings to discuss your portfolio performance and any adjustments needed to align with your financial goals.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What are the fees for Hauberk Capital's services?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Our fee structure is transparent and based on a percentage of assets under management, typically ranging from 0.75% to 1.5% annually depending on portfolio size and complexity. We provide a detailed fee schedule during your initial consultation, and there are no hidden charges or commissions.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What investment strategies does Hauberk Capital use?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>We employ a variety of investment strategies tailored to each client's risk tolerance, time horizon, and financial goals. These may include strategic asset allocation, tactical adjustments, alternative investments, and ESG (Environmental, Social, and Governance) focused portfolios. Our approach is evidence-based and focused on long-term wealth preservation and growth.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Can I make changes to my investment portfolio?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Yes, you have full control over your investment portfolio. Your advisor will work with you to implement any desired changes and will proactively suggest adjustments based on market conditions and your evolving financial situation. We encourage regular portfolio reviews to ensure alignment with your goals.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Are there any hidden fees?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>No, Hauberk Capital is committed to complete fee transparency. All fees are clearly disclosed in our client agreements and regular statements. We do not receive commissions or kickbacks from financial products, ensuring our advice is always in your best interest.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How can I contact Hauberk Capital for support?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>You can reach our client support team via phone, email, or through our secure client portal. Each client is assigned a dedicated relationship manager who is available during business hours. For urgent matters, we maintain a 24/7 support line to ensure you always have access to assistance when needed.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How do I get started with Hauberk Capital?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Getting started is simple. Schedule an initial consultation through our website or by calling our office. During this meeting, we'll discuss your financial goals, risk tolerance, and investment preferences. After this, we'll develop a personalized financial plan and investment strategy for your review and approval before implementation.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How do I access my account information?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>You can access your account information 24/7 through our secure online client portal. The portal provides real-time updates on your portfolio performance, transaction history, and important documents. We also offer a mobile app for convenient access on the go. For assistance with portal access, our client support team is available to help.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What investment strategies does Hauberk Capital use?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Our investment strategies are diverse and customized to each client's needs. We utilize modern portfolio theory, factor-based investing, and dynamic asset allocation. Depending on your goals, we may incorporate traditional investments (stocks, bonds), alternative assets (real estate, private equity), and sustainable investing options to create a well-diversified portfolio.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Can I make changes to my investment portfolio?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Absolutely. Your portfolio remains flexible and can be adjusted as your financial goals or market conditions change. Your advisor will conduct regular reviews with you to ensure your investments remain aligned with your objectives, and you can request changes at any time through your advisor or our client portal.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Are there any hidden fees?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Hauberk Capital operates with complete fee transparency. We charge a straightforward asset-based fee that covers all our wealth management services. There are no hidden charges, surrender fees, or commissions. All potential costs are disclosed upfront before you make any investment decisions.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">How often will I receive updates on my investments?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>We provide formal quarterly performance reports detailing your portfolio's performance, asset allocation, and progress toward your financial goals. However, you can check your account status anytime through our secure client portal. Additionally, your advisor will schedule regular review meetings (typically quarterly or semi-annually) to discuss your portfolio in detail.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">What are the fees for Hauberk Capital's services?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Our fee structure is based on a percentage of assets under management, typically ranging from 0.75% to 1.5% annually. The exact percentage depends on your portfolio size and the complexity of services required. For clients with significant assets, we offer tiered fee schedules that provide reduced rates as asset levels increase.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Will my information be shared with third parties?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>We maintain strict confidentiality of all client information. Your personal and financial data will never be sold or shared with third parties for marketing purposes. We only share information as necessary with trusted partners (such as custodians) to service your account, and as required by regulatory authorities. Our detailed privacy policy is available upon request.</p>
+              </div>
+            </div>
+            <div class="mb-6">
+              <button class="w-full flex items-center justify-between py-4 border-b border-white/50 group focus:outline-none accordion-btn">
+                <span class="text-[#D4AF37] group-hover:scale-125 transition-transform mr-3 plus-icon">
+                  <svg width="20" height="20" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997" stroke="#D4AF37" stroke-width="2.10139" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="text-left text-base font-medium flex-1">Where is Hauberk Capital located?</span>
+              </button>
+              <div class="accordion-content hidden px-4 pt-2 pb-4 text-white/80">
+                <p>Hauberk Capital's headquarters is located in Dubai, UAE, with additional offices in major financial centers around the world. We also offer virtual meetings for clients who prefer remote consultations. Our global presence allows us to serve clients across different time zones and jurisdictions with localized expertise.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const accordionButtons = document.querySelectorAll('.accordion-btn');
+          
+          // Add CSS for enhanced smooth transitions
+          const style = document.createElement('style');
+          style.textContent = `
+            .accordion-content {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                          padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              opacity: 0;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+            .accordion-content.active {
+              max-height: 500px;
+              opacity: 1;
+              padding-top: 0.5rem;
+              padding-bottom: 1rem;
+            }
+            .plus-icon svg {
+              transition: transform 0.4s ease;
+            }
+            .accordion-btn.active .plus-icon svg {
+              transform: rotate(180deg);
+            }
+          `;
+          document.head.appendChild(style);
+          
+          // Initialize all accordion contents
+          document.querySelectorAll('.accordion-content').forEach(content => {
+            content.classList.remove('hidden');
+            content.style.paddingLeft = '1rem'; // Keep horizontal padding consistent
+            content.style.paddingRight = '1rem';
+          });
+          
+          accordionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              // Get the content panel that follows this button
+              const content = this.nextElementSibling;
+              
+              // Close all other open accordions first
+              document.querySelectorAll('.accordion-content.active').forEach(item => {
+                if (item !== content) {
+                  item.classList.remove('active');
+                  
+                  // Find the button associated with this content and remove active class
+                  const parentButton = item.previousElementSibling;
+                  parentButton.classList.remove('active');
+                  
+                  // Restore plus icon
+                  const icon = parentButton.querySelector('.plus-icon svg path');
+                  icon.setAttribute('d', 'M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997');
+                }
+              });
+              
+              // Toggle the clicked accordion with smooth animation
+              if (!content.classList.contains('active')) {
+                // Show content with enhanced smooth animation
+                content.classList.add('active');
+                this.classList.add('active');
+                
+                // Create minus icon by hiding the vertical line
+                const plusIcon = this.querySelector('.plus-icon svg path');
+                plusIcon.setAttribute('d', 'M23.989 12.5997L1.57422 12.5997');
+              } else {
+                // Hide with smooth animation
+                content.classList.remove('active');
+                this.classList.remove('active');
+                
+                // Restore plus icon
+                const plusIcon = this.querySelector('.plus-icon svg path');
+                plusIcon.setAttribute('d', 'M12.7816 1.39233V23.8071M23.989 12.5997L1.57422 12.5997');
+              }
+            });
+          });
+        });
+      </script>
+      </script>
+      </script>
+    </section>
+
+        <!-- Ready To Start Growing Section -->
+        <section class="relative md:h-[60vh] pt-[10%] text-white overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="images/meeting-bg.png" alt="NYC Skyline" class="w-full h-full object-cover object-center"/>
+            </div>
+            
+            <!-- Content Container -->
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center mx-auto">
+                    <!-- Left Content -->
+                    <div class="mb-10 md:mb-0 w-full">
+                        <h2 class="text-[35.06px] md:text-[51.02px] leading-[1.1] font-neue-extrabold text-white mb-6">
+                            READY TO<br/>START GROWING?!
+                        </h2>
+                        <p class="text-[13.1px] leading-[18.8px] md:text-[19.06px] md:leading-[27.4px] font-['Poppins'] opacity-90 mb-8 max-w-md">
+                            Unlock the full potential of your wealth
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-10">
+                            <a href="#" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                                JOIN OUR MAILING LIST
+                            </a>
+                            
+                            <a href="#" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                                REQUEST A MEETING
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side is empty but takes up space -->
+                    <div class="w-full md:w-1/2">
+                        <!-- Empty space to balance layout -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-[#041B44] text-white py-8">
+          <div class="container mx-auto px-4">
+              <!-- Logo for mobile -->
+              <div class="block md:hidden mb-6">
+                  <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+              </div>
+              
+              <!-- Mobile navigation accordion -->
+              <div class="md:hidden">
+                  <!-- Home dropdown -->
+                  <div class="border-b border-[#1A2F57]">
+                      <div class="flex justify-between items-center py-4">
+                          <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                          <button class="text-white dropdown-toggle">
+                              <i class="fas fa-chevron-down"></i>
+                          </button>
+                      </div>
+                      <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                          <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                          <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                          <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                          <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Services & Programs dropdown -->
+                  <div class="border-b border-[#1A2F57]">
+                      <div class="flex justify-between items-center py-4">
+                          <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                          <button class="text-white dropdown-toggle">
+                              <i class="fas fa-chevron-down"></i>
+                          </button>
+                      </div>
+                      <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                          <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                          <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                          <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                          <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Contact Us dropdown -->
+                  <div class="border-b border-[#1A2F57]">
+                      <div class="flex justify-between items-center py-4">
+                          <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                          <button class="text-white dropdown-toggle">
+                              <i class="fas fa-chevron-down"></i>
+                          </button>
+                      </div>
+                      <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                          <li class="flex items-start">
+                              <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                              <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                          </li>
+                          <li class="flex items-start">
+                              <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                              <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                          </li>
+                          <li class="flex items-start">
+                              <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                              <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Follow Us dropdown -->
+                  <div class="border-b border-[#1A2F57]">
+                      <div class="flex justify-between items-center py-4">
+                          <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                          <button class="text-white dropdown-toggle">
+                              <i class="fas fa-chevron-down"></i>
+                          </button>
+                      </div>
+                      <div class="hidden dropdown-content pb-4">
+                          <div class="flex space-x-4 mb-6 pt-2">
+                              <a href="#" class="text-white">
+                                  <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                              </a>
+                              <a href="#" class="text-white">
+                                  <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                              </a>
+                              <a href="#" class="text-white">
+                                  <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                              </a>
+                              <a href="#" class="text-white">
+                                  <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                              </a>
+                              <a href="#" class="text-white">
+                                  <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Desktop footer - keep existing code -->
+              <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                  <!-- ... existing code for desktop ... -->
+                  <!-- Column 1: Home -->
+                  <div>
+                      <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                      <ul class="space-y-3 text-sm">
+                          <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                          <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                          <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                          <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Column 2: Services & Programs -->
+                  <div>
+                      <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                      <ul class="space-y-3 text-sm">
+                          <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                          <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                          <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                          <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Column 3: Contact Us -->
+                  <div>
+                      <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                      <ul class="space-y-3 text-sm">
+                          <li class="flex items-start">
+                              <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                              <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                          </li>
+                          <li class="flex items-start">
+                              <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                              <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                          </li>
+                          <li class="flex items-start">
+                              <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                              <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                          </li>
+                      </ul>
+                  </div>
+                  
+                  <!-- Column 4: Follow Us -->
+                  <div>
+                      <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                      <div class="flex space-x-4 mb-6">
+                          <a href="#" class="text-white hover:text-[#D4AF37]">
+                              <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                          </a>
+                          <a href="#" class="text-white hover:text-[#D4AF37]">
+                              <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                          </a>
+                          <a href="#" class="text-white hover:text-[#D4AF37]">
+                              <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                          </a>
+                          <a href="#" class="text-white hover:text-[#D4AF37]">
+                              <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                          </a>
+                          <a href="#" class="text-white hover:text-[#D4AF37]">
+                              <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+              <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                  <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                      <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                      <span class="text-white">|</span>
+                      <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                      <span class="text-white">|</span>
+                      <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                  </div>
+              
+              </div>
+              
+              <!-- Newsletter subscribe -->
+              <div class="mt-6 mb-10 md:w-[50%]">
+                  <div class="flex flex-row gap-2">
+                      <input 
+                          type="email" 
+                          placeholder="Subscribe to Our Newsletter" 
+                          class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                      >
+                      <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                          REQUEST A MEETING
+                      </button>
+                  </div>
+              </div>
+              <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                  ADGM Financial Regulated Company, FSP no. 220131
+              </div>
+              <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                  © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+              </div>
+              <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+              <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                  <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                      ADGM Financial Regulated Company, FSP no. 220131
+                  </div>
+                  <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                      © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                  </div>
+                  <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                      <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                      <span class="text-white">|</span>
+                      <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                      <span class="text-white">|</span>
+                      <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                  </div>
+              </div>
+          </div>
+  
+      </footer>
+  <script src="index.js"></script>
+</body>
+</html>

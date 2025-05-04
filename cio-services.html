@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+        <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+            <div class="container mx-auto">
+                <!-- Desktop and Mobile header -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                        </a>
+                    </div>
+                    <!-- Burger Menu Button -->
+                    <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <ul class="flex items-center space-x-6">
+                            <li class="group relative">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="group relative">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    About us
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Services
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Resources Center
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                                <span class="text-[#BF9874]">|</span>
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                            </div>
+                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                    <ul class="flex flex-col space-y-4">
+                        <li class="group">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Home
+                            </a>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Contact Us
+                            </a>
+                        </li>
+                        <div class="flex items-center space-x-2 py-2 text-base">
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                            <span class="text-[#BF9874]">|</span>
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                        </div>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-navy-900 text-white h-screen md:h-[70vh] relative">
+        <div class="relative overflow-hidden h-full">
+            <div class="flex flex-col h-full">
+                <div class="flex transition-transform duration-500 ease-in-out h-full">
+                    <div class="w-full flex-shrink-0 relative">
+                        <!-- Desktop background -->
+                        <div class="absolute inset-0 hidden md:block">
+                            <img src="images/cio-innerpage-bg.png" alt="Wealth Management" class="w-full h-full object-cover"/>
+                        </div>
+                        <!-- Mobile background -->
+                        <div class="absolute inset-0 block md:hidden">
+                            <img src="images/services-mob.png" alt="Wealth Management Mobile" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-[120vh] md:h-[90vh] flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[45px] xl:text-[50px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">CIO OFFICE SERVICES</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF]/70 font-['Poppins'] font-regular">Empowering Your Wealth, Elevating Your Future with our Strategic Investment Advisory Services</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">REQUEST A MEETING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row lg:flex-col xl:flex-row md:items-center lg:items-start xl:items-center mb-10">
+                <div class="w-full md:w-2/5 lg:w-full xl:w-2/5 mb-8 md:mb-0 lg:mb-8 xl:mb-0 text-center md:text-left lg:text-left xl:text-left">
+                    <h2 class="text-[#041B44] text-4xl md:text-[48px] lg:text-[48px] xl:text-[45px] md:leading-[62px] lg:leading-[62px] xl:leading-[62px] font-neue-extrabold mb-4">CIO Office Services</h2>
+                    <p class="text-[#041B44]/70 font-['Poppins'] text-[18px] font-regular">At Hauberk Capital, we offer tailored CIO Office Services for High-Net-Worth Individuals, Family Offices, and Endowments, providing comprehensive investment advisory solutions. Our services include relationship management, asset allocation monitoring, manager oversight, compliance, reporting, and performance evaluation. We also handle investment banking transactions, manage global banking relationships, and provide market insights. By leveraging our expertise, you gain a dedicated team committed to optimizing your investment performance and achieving your financial objectives through strategic and customized solutions.</p>
+                </div>
+
+                <div class="w-full md:w-3/5 lg:w-full xl:w-3/5 relative overflow-hidden px-14">
+                    <!-- Carousel Navigation -->
+                    <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10 text-[#353E5C]">
+                        <i class="fas fa-chevron-left text-xl"></i>
+                    </button>
+                    <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10 text-[#353E5C]">
+                        <i class="fas fa-chevron-right text-xl"></i>
+                    </button>
+
+                    <!-- Carousel Container -->
+                    <div id="carousel-container" class="flex gap-6 w-full transition-transform duration-500">
+                        <!-- Card 1 -->
+                        <div class="carousel-item flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] xl:w-[calc(50%-12px)] bg-[#041B44] text-white p-8 rounded-none">
+                            <h3 class="text-2xl md:text-[26px] lg:text-[26px] xl:text-[26px] font-neue-bold mb-6 uppercase">Day to Day realtionship</h3>
+                            <p class="font-sf-pro-regular text-[#FFFFFF]/70 text-[16px] leading-relaxed">Setup up a new investment and legal structure or strengthen an existing one for protecting and governing the current wealth.</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="carousel-item flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(50%-12px)] xl:w-[calc(50%-12px)] bg-[#041B44] text-white p-8 rounded-none">
+                            <h3 class="text-2xl md:text-[26px] lg:text-[26px] xl:text-[26px] font-neue-bold mb-6 uppercase">Recommend Assets allocation</h3>
+                            <p class="font-sf-pro-regular text-[#FFFFFF]/70 text-[16px] leading-relaxed">Setup of Endowments and foundation deeds. Design the investment office and Endowment fund organization structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#041B44] text-white py-16 px-6 md:py-40 bg-[url('images/approach-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-[32px] md:text-[40px] xl:text-[48px] font-neue-extrabold text-white">CIO OFFICE APPROACH</h2>
+            </div>
+            <!-- Approach Description -->
+            <div class="max-w-6xl mx-auto text-center mb-24">
+                <p class="text-white opacity-70 font-['Poppins'] font-regular text-[21.28px] leading-relaxed mb-6">
+                    Hauberk Capital’s CIO Office Services provide a comprehensive outsourcing solution for High-Net-Worth Individuals (HNWIs), Family Offices, and Endowments, encompassing all aspects of managing an investment office.                 </p>
+            </div>
+            <!-- Research Process Grid - Top Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6">
+                <!-- Customized Approach -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Hauberk's 12-Step Systematic Approach</h3>
+                        <button class="text-[#D4AF37] toggle-research" data-id="customized-approach">
+                            <i class="fas fa-chevron-down transform rotate-180 text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 research-section" id="customized-approach">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Hauberk Capital’s CIO Office Services offer a meticulously designed 12-step approach to investment management. This comprehensive program starts by understanding your unique financial goals and crafting a personalized strategy. Hauberk then takes care of day-to-day operations, facilitates communication between your team and investment managers, and continuously monitors your portfolio for optimal performance. They provide insightful reports, support your investment committee, and proactively seek ways to improve your investment program. Additionally, they can manage complex financial transactions and ensure adherence to regulations, all while offering expert recommendations on asset allocation and manager selection.                        </p>
+                    </div>
+                </div>
+                <!-- Proprietary Database and Research -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Addressing the Gap in Digital Leadership</h3>
+                        <button class="text-[#D4AF37] toggle-research" data-id="proprietary-database">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 research-section hidden" id="proprietary-database">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Hauberk Capital addresses the critical gap in digital leadership by providing expert guidance in navigating the increasingly complex digital investment landscape. Our team combines traditional financial expertise with cutting-edge technological understanding to help clients leverage digital tools, platforms, and strategies for optimal investment outcomes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Research Process Grid - Middle Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6">
+                <!-- Comprehensive Coverage -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Delivering Strategic Digital Transformation</h3>
+                        <button class="text-[#D4AF37] toggle-research" data-id="comprehensive-coverage">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 research-section hidden" id="comprehensive-coverage">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our research spans across all major asset classes, sectors, and global markets to ensure we capture the full spectrum of investment opportunities.
+                        </p>
+                    </div>
+                </div>
+                <!-- Manager Review Committee (MARC) -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Benefits of Hauberk CIO Office Services</h3>
+                        <button class="text-[#D4AF37] toggle-research" data-id="manager-review">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 research-section hidden" id="manager-review">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our expert committee conducts rigorous evaluations of investment managers, assessing their strategies, performance, risk management, and alignment with client objectives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function toggleResearch(button) {
+                const contentId = button.getAttribute('data-id');
+                const contentSection = document.getElementById(contentId);
+                const icon = button.querySelector('i');
+                
+                // Close all sections first
+                document.querySelectorAll('.research-section').forEach(section => {
+                    if (section.id !== contentId) {
+                        // Add smooth transition for closing
+                        if (!section.classList.contains('hidden')) {
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                            setTimeout(() => {
+                                section.style.maxHeight = '0px';
+                                section.style.opacity = '0';
+                            }, 10);
+                            
+                            setTimeout(() => {
+                                section.classList.add('hidden');
+                                section.style.maxHeight = '';
+                                section.style.opacity = '';
+                            }, 300);
+                        }
+                        
+                        const sectionButton = document.querySelector(`[data-id="${section.id}"]`);
+                        if (sectionButton) {
+                            sectionButton.querySelector('i').classList.remove('rotate-180');
+                        }
+                    }
+                });
+                
+                // Toggle the clicked section with smooth animation
+                if (contentSection.classList.contains('hidden')) {
+                    // Opening the section
+                    contentSection.classList.remove('hidden');
+                    contentSection.style.maxHeight = '0px';
+                    contentSection.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = contentSection.scrollHeight + 'px';
+                        contentSection.style.opacity = '1';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = '';
+                    }, 300);
+                    
+                    icon.classList.add('rotate-180');
+                } else {
+                    // Closing the section
+                    contentSection.style.maxHeight = contentSection.scrollHeight + 'px';
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = '0px';
+                        contentSection.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        contentSection.classList.add('hidden');
+                        contentSection.style.maxHeight = '';
+                        contentSection.style.opacity = '';
+                    }, 300);
+                    
+                    icon.classList.remove('rotate-180');
+                }
+            }
+            
+            // Add event listeners to all toggle buttons
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add CSS for smooth transitions
+                const style = document.createElement('style');
+                style.textContent = `
+                    .research-section {
+                        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+                        overflow: hidden;
+                        opacity: 1;
+                    }
+                    .rotate-180 {
+                        transition: transform 0.3s ease;
+                        transform: rotate(180deg);
+                    }
+                    i.fas {
+                        transition: transform 0.3s ease;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                document.querySelectorAll('.toggle-research').forEach(button => {
+                    button.addEventListener('click', function() {
+                        toggleResearch(this);
+                    });
+                });
+            });
+        </script>
+    </section>
+
+    <section class="bg-white text-[#041B44] py-16 md:py-24 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-[32px] md:text-[40px] xl:text-[48px] font-neue-extrabold">STEPS TO START</h2>
+                <p class="text-[18px] font-['Poppins'] text-[#041B44]/70 mt-2">Your Wealth Governance</p>
+            </div>
+
+            <!-- Steps Carousel -->
+            <div class="relative max-w-7xl mx-auto px-10">
+                <!-- Carousel Navigation -->
+                <button id="steps-prev-btn" class="absolute md:left-[-2%] left-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10 text-[#353E5C]">
+                    <i class="fas fa-chevron-left text-2xl"></i>
+                </button>
+                <button id="steps-next-btn" class="absolute md:right-[-2%] right-0 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center z-10 text-[#353E5C]">
+                    <i class="fas fa-chevron-right text-2xl"></i>
+                </button>
+
+                <!-- Carousel Container -->
+                <div id="steps-carousel" class="flex flex-wrap md:flex-nowrap gap-12 w-full transition-all duration-500">
+                    <!-- Step 1 -->
+                    <div class="steps-item w-full md:w-1/3 relative mb-8">
+                        <div class="number-badge absolute -top-4 -left-4 w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-white font-neue-bold text-lg z-20 shadow-md">1</div>
+                        <div class="bg-[#041B44] text-white p-8 pt-24 pb-24 h-40 flex items-center">
+                            <h3 class="text-2xl md:text-[24px] font-neue-bold text-left">INITIAL CONSULTATION</h3>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="steps-item w-full md:w-1/3 relative mb-8 hidden md:block">
+                        <div class="number-badge absolute -top-4 -left-4 w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-white font-neue-bold text-lg z-20 shadow-md">2</div>
+                        <div class="bg-[#041B44] text-white p-8 pt-24 pb-24 h-40 flex items-center">
+                            <h3 class="text-2xl md:text-[24px] font-neue-bold text-left">DEVELOPMENT OF CUSTOMIZED INVESTMENT STRATEGY</h3>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="steps-item w-full md:w-1/3 relative mb-8 hidden md:block">
+                        <div class="number-badge absolute -top-4 -left-4 w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-white font-neue-bold text-lg z-20 shadow-md">3</div>
+                        <div class="bg-[#041B44] text-white p-8 pt-24 pb-24 h-40 flex items-center">
+                            <h3 class="text-2xl md:text-[24px] font-neue-bold text-left">DAY-TO-DAY RELATIONSHIP MANAGEMENT</h3>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="steps-item w-full md:w-1/3 relative mb-8 hidden">
+                        <div class="number-badge absolute -top-4 -left-4 w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-white font-neue-bold text-lg z-20 shadow-md">4</div>
+                        <div class="bg-[#041B44] text-white p-8 pt-24 pb-24 h-40 flex items-center">
+                            <h3 class="text-2xl md:text-[24px] font-neue-bold text-left">GO  AL SETTING AND OBJECTIVE DEFINITION</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Insights Section -->
+        <section class="py-16 bg-[#041B44] text-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-[32px] xl:text-[54px] xl:font-neue-bold font-neue-extrabold text-center mb-16">WHY CHOOSE US</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 px-6 md:px-0">
+                    <!-- Blogs Column -->
+                    <div class="flex flex-col">
+                        <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                            <img src="images/wcu-1.png" alt="Blog Image" class="w-[250px] h-auto mx-auto">
+                            <div class="pt-4">
+                                <h3 class="text-[#FFFFFF] text-[28px] font-neue-extrabold mb-6 text-center">EXPERT ADVISORS</h3>
+                                <p class="max-w-[300px] text-white/70 xl:text-[15.07px] font-['Poppins'] mx-auto text-bold mb-4 text-center">Our team comprises seasoned professionals with extensive experience in wealth management, legal advisory, and family governance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Investor Library Column -->
+                    <div class="flex flex-col">
+                        <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                            <img src="images/wcu-2.png" alt="Investor Library Image" class="w-[250px] h-auto mx-auto">
+                            <div class="pt-4">
+                                <h3 class="text-[#FFFFFF] text-[28px] font-neue-extrabold mb-6 text-center">HOLISTIC APPROACH</h3>
+                                <p class="max-w-[300px] text-white/70 xl:text-[15.07px] font-['Poppins'] mx-auto text-bold mb-4 text-center">Our integrated approach considers all aspects of wealth governance, from financial advisory to legal compliance and family dynamics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- News & Events Column -->
+                    <div class="flex flex-col">
+                        <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                            <img src="images/wcu-3.png" alt="News & Events Image" class="w-[250px] h-auto mx-auto">
+                            <div class="pt-4">
+                                <h3 class="text-[#FFFFFF] text-[28px] font-neue-extrabold mb-6 text-center">TAILORED SOLUTIONS</h3>
+                                <p class="max-w-[300px] text-white/70 xl:text-[15.07px] font-['Poppins'] mx-auto text-bold mb-4 text-center">We understand that every client is unique, and we tailor our services to meet your specific needs and goals with highest standards of ethics &transparency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+        <section class="relative md:h-[60vh] pt-[10%] text-white overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="images/meeting-bg.png" alt="NYC Skyline" class="w-full h-full object-cover object-center"/>
+            </div>
+            
+            <!-- Content Container -->
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row items-center mx-auto">
+                    <!-- Left Content -->
+                    <div class="mb-10 md:mb-0 w-full">
+                        <h2 class="text-[35.06px] md:text-[51.02px] leading-[1.1] font-neue-extrabold text-white mb-6">
+                            READY TO<br/>START GROWING?!
+                        </h2>
+                        <p class="text-[13.1px] leading-[18.8px] md:text-[19.06px] md:leading-[27.4px] font-['Poppins'] opacity-90 mb-8 max-w-md">
+                            Unlock the full potential of your wealth
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-10">
+                            <a href="#" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                                JOIN OUR MAILING LIST
+                            </a>
+                            
+                            <a href="#" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                                REQUEST A MEETING
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side is empty but takes up space -->
+                    <div class="w-full md:w-1/2">
+                        <!-- Empty space to balance layout -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-[#041B44] text-white py-8">
+            <div class="container mx-auto px-4">
+                <!-- Logo for mobile -->
+                <div class="block md:hidden mb-6">
+                    <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+                </div>
+                
+                <!-- Mobile navigation accordion -->
+                <div class="md:hidden">
+                    <!-- Home dropdown -->
+                    <div class="border-b border-[#1A2F57]">
+                        <div class="flex justify-between items-center py-4">
+                            <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                            <button class="text-white dropdown-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                            <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                            <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                            <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                            <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Services & Programs dropdown -->
+                    <div class="border-b border-[#1A2F57]">
+                        <div class="flex justify-between items-center py-4">
+                            <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                            <button class="text-white dropdown-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                            <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                            <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                            <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                            <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Us dropdown -->
+                    <div class="border-b border-[#1A2F57]">
+                        <div class="flex justify-between items-center py-4">
+                            <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                            <button class="text-white dropdown-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                            <li class="flex items-start">
+                                <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                                <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                                <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                                <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Follow Us dropdown -->
+                    <div class="border-b border-[#1A2F57]">
+                        <div class="flex justify-between items-center py-4">
+                            <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                            <button class="text-white dropdown-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="hidden dropdown-content pb-4">
+                            <div class="flex space-x-4 mb-6 pt-2">
+                                <a href="#" class="text-white">
+                                    <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                                </a>
+                                <a href="#" class="text-white">
+                                    <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                                </a>
+                                <a href="#" class="text-white">
+                                    <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                                </a>
+                                <a href="#" class="text-white">
+                                    <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                                </a>
+                                <a href="#" class="text-white">
+                                    <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop footer - keep existing code -->
+                <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <!-- ... existing code for desktop ... -->
+                    <!-- Column 1: Home -->
+                    <div>
+                        <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                            <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                            <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                            <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Services & Programs -->
+                    <div>
+                        <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                            <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                            <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                            <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 3: Contact Us -->
+                    <div>
+                        <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start">
+                                <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                                <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                                <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                            </li>
+                            <li class="flex items-start">
+                                <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                                <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 4: Follow Us -->
+                    <div>
+                        <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                        <div class="flex space-x-4 mb-6">
+                            <a href="#" class="text-white hover:text-[#D4AF37]">
+                                <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                            </a>
+                            <a href="#" class="text-white hover:text-[#D4AF37]">
+                                <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                            </a>
+                            <a href="#" class="text-white hover:text-[#D4AF37]">
+                                <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                            </a>
+                            <a href="#" class="text-white hover:text-[#D4AF37]">
+                                <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                            </a>
+                            <a href="#" class="text-white hover:text-[#D4AF37]">
+                                <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+                <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                    <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                        <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                        <span class="text-white">|</span>
+                        <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                        <span class="text-white">|</span>
+                        <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                    </div>
+                
+                </div>
+                
+                <!-- Newsletter subscribe -->
+                <div class="mt-6 mb-10 md:w-[50%]">
+                    <div class="flex flex-row gap-2">
+                        <input 
+                            type="email" 
+                            placeholder="Subscribe to Our Newsletter" 
+                            class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                        >
+                        <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                            REQUEST A MEETING
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                    ADGM Financial Regulated Company, FSP no. 220131
+                </div>
+                <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                    © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                </div>
+                <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+                <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                    <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                        ADGM Financial Regulated Company, FSP no. 220131
+                    </div>
+                    <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                        © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                    </div>
+                    <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                        <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                        <span class="text-white">|</span>
+                        <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                        <span class="text-white">|</span>
+                        <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+    
+        </footer>
+    <script src="index.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.getElementById('burger-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            burgerMenu.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Carousel functionality
+            const carouselContainer = document.getElementById('carousel-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            
+            let currentIndex = 0;
+            const totalItems = carouselItems.length;
+            
+            // Initial setup
+            function setupCarousel() {
+                // On mobile, show only one item
+                if (window.innerWidth < 768) {
+                    carouselItems.forEach((item, index) => {
+                        item.style.display = index === currentIndex ? 'block' : 'none';
+                    });
+                    // Show/hide navigation buttons based on current index
+                    prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+                    nextBtn.style.opacity = currentIndex === totalItems - 1 ? '0.5' : '1';
+                } else {
+                    // On desktop, show both items
+                    carouselItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    prevBtn.style.opacity = '0.5';
+                    nextBtn.style.opacity = '0.5';
+                }
+            }
+            
+            // Run initial setup
+            setupCarousel();
+            
+            prevBtn.addEventListener('click', function() {
+                if (window.innerWidth < 768 && currentIndex > 0) {
+                    currentIndex--;
+                    setupCarousel();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (window.innerWidth < 768 && currentIndex < totalItems - 1) {
+                    currentIndex++;
+                    setupCarousel();
+                }
+            });
+            
+            // Update carousel on window resize
+            window.addEventListener('resize', setupCarousel);
+
+            // NEW: Steps Carousel Functionality - Simplified
+            const stepsPrevBtn = document.getElementById('steps-prev-btn');
+            const stepsNextBtn = document.getElementById('steps-next-btn');
+            const stepsItems = document.querySelectorAll('.steps-item');
+            
+            let currentStepIndex = 0;
+            const totalSteps = stepsItems.length;
+            
+            // Add CSS styles for the carousel
+            const style = document.createElement('style');
+            style.textContent = `
+                .steps-item {
+                    transition: all 0.3s ease-in-out;
+                }
+                .number-badge {
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Function to update the carousel display
+            function updateStepsCarousel() {
+                // For mobile view (one card at a time)
+                if (window.innerWidth < 768) {
+                    stepsItems.forEach((item, index) => {
+                        // Only show the current step on mobile
+                        if (index === currentStepIndex) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                } 
+                // For desktop view (three cards at a time)
+                else {
+                    stepsItems.forEach((item, index) => {
+                        // Show first three items on desktop
+                        if (index >= currentStepIndex && index < currentStepIndex + 3) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                }
+                
+                // Update the navigation buttons
+                stepsPrevBtn.style.opacity = currentStepIndex === 0 ? '0.5' : '1';
+                stepsPrevBtn.style.cursor = currentStepIndex === 0 ? 'default' : 'pointer';
+                
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                stepsNextBtn.style.opacity = currentStepIndex >= maxIndex ? '0.5' : '1';
+                stepsNextBtn.style.cursor = currentStepIndex >= maxIndex ? 'default' : 'pointer';
+            }
+            
+            // Initialize the carousel
+            updateStepsCarousel();
+            
+            // Handle previous button click
+            stepsPrevBtn.addEventListener('click', function() {
+                if (currentStepIndex > 0) {
+                    currentStepIndex--;
+                    updateStepsCarousel();
+                }
+            });
+            
+            // Handle next button click
+            stepsNextBtn.addEventListener('click', function() {
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                if (currentStepIndex < maxIndex) {
+                    currentStepIndex++;
+                    updateStepsCarousel();
+                }
+            });
+            
+            // Update on window resize
+            window.addEventListener('resize', function() {
+                // Reset the index if needed
+                const maxIndex = window.innerWidth < 768 ? totalSteps - 1 : totalSteps - 3;
+                if (currentStepIndex > maxIndex) {
+                    currentStepIndex = maxIndex;
+                }
+                updateStepsCarousel();
+            });
+        });
+    </script>
+    
+</body>
+</html>

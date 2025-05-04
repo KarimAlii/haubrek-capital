@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+        <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+            <div class="container mx-auto">
+                <!-- Desktop and Mobile header -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                        </a>
+                    </div>
+                    <!-- Burger Menu Button -->
+                    <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <ul class="flex items-center space-x-6">
+                            <li class="group relative">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="group relative">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    About us
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Services
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Resources Center
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                                <span class="text-[#BF9874]">|</span>
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                            </div>
+                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                    <ul class="flex flex-col space-y-4">
+                        <li class="group">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Home
+                            </a>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Contact Us
+                            </a>
+                        </li>
+                        <div class="flex items-center space-x-2 py-2 text-base">
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                            <span class="text-[#BF9874]">|</span>
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                        </div>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-navy-900 text-white h-screen md:h-[70vh] relative">
+        <div class="relative overflow-hidden h-full">
+            <div class="flex flex-col h-full">
+                <div class="flex transition-transform duration-500 ease-in-out h-full">
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <!-- Desktop background -->
+                            <img src="images/board-hero.png" alt="Wealth Management" class="hidden md:block w-full h-full object-cover"/>
+                            <!-- Mobile background -->
+                            <img src="images/mobile-board-hero.png" alt="Wealth Management" class="block md:hidden w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-[120vh] md:h-[90vh] flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[45px] xl:text-[78px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">BOARD OF DIRECTORS</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF]/70 font-['Poppins'] font-regular">Discover the visionary leaders steering Hauberk Capital towards <br class="hidden sm:block"/>new heights</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">REQUEST A MEETING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="relative py-16 md:py-24 md:overflow-hidden">
+        <!-- Background image -->
+        <div class="absolute inset-0 hidden md:block">
+            <img src="images/board-leadership-bg.png" alt="Leadership Background" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Mobile Background image -->
+        <div class="absolute inset-0 block md:hidden">
+            <img src="images/mobile-board-leadership-bg.png" alt="Leadership Background Mobile" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto px-4 relative">
+            <!-- Leadership Heading and Text -->
+            <div class="mb-12 md:mb-16 md:w-[70%]">
+                <h2 class="text-[36px] md:text-[48px] font-neue-extrabold text-white leading-[48px] md:leading-[62px] mb-6 text-center md:text-left">VISIONARY LEADERSHIP,<br/> LASTING IMPACT</h2>
+                <p class="text-white opacity-70 font-['Poppins'] text-[18px] leading-relaxed hidden md:block">
+                    At Hauberk Capital, our Board of Directors brings unparalleled global expertise in investment and wealth management. With strategic foresight and governance excellence, they drive sustainable growth, ensuring strong risk management and long-term value for all stakeholders.
+                </p>
+            </div>
+            
+            <!-- Team Member Slider -->
+            <div class="relative">
+                <!-- Navigation Arrows - Desktop -->
+                <button id="prev-slide" class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -ml-8 z-10 bg-[#041B44]/30 rounded-full p-2 text-white hover:bg-[#041B44]/50 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                
+                <button id="next-slide" class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 -mr-8 z-10 bg-[#041B44]/30 rounded-full p-2 text-white hover:bg-[#041B44]/50 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+                
+                <!-- Team Members Grid -->
+                <!-- Desktop View - Grid -->
+                <div id="directors-grid" class="hidden md:grid md:grid-cols-3 gap-2 mt-12">
+                    <!-- Director 1 -->
+                    <div class="text-center director-slide" data-slide="0">
+                        <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4 cursor-pointer director-image" data-director="wael">
+                            <img src="images/wael.png" alt="Wael Fawzi" class="w-full h-full object-cover object-center">
+                        </div>
+                        <h3 class="text-[#FFFFFF] font-neue-bold text-xl mt-3">Wael Fawzi</h3>
+                        <p class="text-[#FFFFFF] opacity-70 font-['Poppins']">Managing Director</p>
+                    </div>
+                    
+                    <!-- Director 2 -->
+                    <div class="text-center director-slide" data-slide="1">
+                        <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4 cursor-pointer director-image" data-director="natalia">
+                            <img src="images/natalia.png" alt="Natalia Biryukova" class="w-full h-full object-cover object-center">
+                        </div>
+                        <h3 class="text-[#FFFFFF] font-neue-bold text-xl mt-3">Natalia Biryukova</h3>
+                        <p class="text-[#FFFFFF] opacity-70 font-['Poppins']">Director</p>
+                    </div>
+                    
+                    <!-- Director 3 -->
+                    <div class="text-center director-slide" data-slide="2">
+                        <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4 cursor-pointer director-image" data-director="motesm">
+                            <img src="images/motasem.png" alt="Motesm Aggad" class="w-full h-full object-cover object-center">
+                        </div>
+                        <h3 class="text-[#FFFFFF] font-neue-bold text-xl mt-3">Motesm Aggad</h3>
+                        <p class="text-[#FFFFFF] opacity-70 font-['Poppins']">Director</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile View - Carousel -->
+                <div id="directors-carousel" class="md:hidden relative mt-8">
+                    <!-- Mobile Navigation Arrows -->
+                    <button id="mobile-prev-slide" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-[#041B44]/50 rounded-full p-2 text-white hover:bg-[#041B44]/70 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    
+                    <button id="mobile-next-slide" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-[#041B44]/50 rounded-full p-2 text-white hover:bg-[#041B44]/70 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    
+                    <div class="overflow-hidden">
+                        <div id="mobile-slider" class="flex transition-transform duration-300 ease-in-out">
+                            <!-- Director 1 -->
+                            <div class="min-w-full px-4 mobile-slide" data-slide="0">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4 cursor-pointer director-image" data-director="wael">
+                                        <img src="images/wael.png" alt="Wael Fawzi" class="w-full h-full object-cover object-center">
+                                    </div>
+                                    <h3 class="text-white font-neue-bold text-xl mt-2">Wael Fawzi</h3>
+                                    <p class="text-white opacity-70 font-['Poppins'] text-sm">Managing Director</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Director 2 -->
+                            <div class="min-w-full px-4 mobile-slide" data-slide="1">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4 cursor-pointer director-image" data-director="natalia">
+                                        <img src="images/natalia.png" alt="Natalia Biryukova" class="w-full h-full object-cover object-center">
+                                    </div>
+                                    <h3 class="text-white font-neue-bold text-xl mt-2">Natalia Biryukova</h3>
+                                    <p class="text-white opacity-70 font-['Poppins'] text-sm">Director</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Director 3 -->
+                            <div class="min-w-full px-4 mobile-slide" data-slide="2">
+                                <div class="flex flex-col items-center">
+                                    <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4 cursor-pointer director-image" data-director="motesm">
+                                        <img src="images/motasem.png" alt="Motesm Aggad" class="w-full h-full object-cover object-center">
+                                    </div>
+                                    <h3 class="text-white font-neue-bold text-xl mt-2">Motesm Aggad</h3>
+                                    <p class="text-white opacity-70 font-['Poppins'] text-sm">Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <span class="w-3 h-3 bg-white/30 rounded-full cursor-pointer pagination-dot" data-slide="0"></span>
+                    <span class="w-3 h-3 bg-white/30 rounded-full cursor-pointer pagination-dot" data-slide="1"></span>
+                    <span class="w-3 h-3 bg-[#D4AF37] rounded-full cursor-pointer pagination-dot active" data-slide="2"></span>
+                </div>
+                
+                <!-- Director Bio Popups -->
+                <div id="director-popup-wael" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center overflow-y-auto">
+                    <div class="bg-[#020711] text-white p-6 rounded-lg max-w-6xl mx-4 my-8 relative">
+                        <button class="absolute top-4 right-4 text-white close-popup">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="hidden md:block md:w-1/2 flex flex-col justify-center space-y-4">
+                                <h2 class="text-[35px] font-neue-extrabold text-white text-center">WAEL FAWZI</h2>
+                                <img src="images/popup-wael.png" alt="Wael Fawzi" class="w-full rounded-lg">
+                            </div>
+                            <div class="md:w-2/3">
+                                <div class="mt-20">
+                                    <h3 class="text-[#D4AF37] text-lg font-bold mb-2">Experience</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>25 years in the banking and investment industry.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Extensive knowledge of the financial services sector.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Highly respected skills.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Current</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Senior Executive Officer at Hauberk Capital.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Previous Roles</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Board member and board member of Emptiness Advisors, Luxembourg.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Chairman & Co-Founder at Menkopia Ventures, Egypt.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Chief Investment Officer at Insight Business Ventures in High Wasting Co, KSA.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Senior Portfolio Manager at Credit Suisse (Riyadh Branch), Saudi Company, KSA.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Corporate Finance Manager at Societe Generale Group.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Education</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>PhD in Finance from Central Washington University (2006).</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>MBA from North Washington University (2001).</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-sm mt-4">
+                                        Wael has been a driving force behind Hauberk Capital's innovative, forward-thinking approach to solving the success and growth of the financial institutions he has been a part of, ensuring long-term value for all stakeholders.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="director-popup-natalia" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center overflow-y-auto">
+                    <div class="bg-[#020711] text-white p-6 rounded-lg max-w-6xl mx-4 my-8 relative">
+                        <button class="absolute top-4 right-4 text-white close-popup">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="hidden md:block md:w-1/2 flex flex-col justify-center space-y-4">
+                                <h2 class="text-[35px] font-neue-extrabold text-white text-center">NATALIA BIRYUKOVA</h2>
+                                <img src="images/natalia.png" alt="Natalia Biryukova" class="w-full rounded-lg">
+                            </div>
+                            <div class="md:w-2/3">
+                                <div class="mt-20">
+                                    <h3 class="text-[#D4AF37] text-lg font-bold mb-2">Experience</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>18 years in financial strategy and emerging markets.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Specialist in sustainable investments and ESG integration.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Recognized for innovative portfolio management approaches.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Current</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Director at Hauberk Capital.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Previous Roles</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Head of Emerging Markets at Global Investment Partners, London.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Senior Investment Strategist at Eastern European Fund Management.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Portfolio Manager at International Finance Group, Switzerland.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Investment Analyst at European Asset Management.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Education</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>MSc in Financial Economics from London School of Economics (2005).</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Bachelor's in International Business from Moscow State University (2003).</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-sm mt-4">
+                                        Natalia's expertise in navigating complex market conditions has been instrumental in helping clients achieve their long-term financial goals while maintaining a focus on sustainable investment practices.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="director-popup-motesm" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center overflow-y-auto">
+                    <div class="bg-[#020711] text-white p-6 rounded-lg max-w-6xl mx-4 my-8 relative">
+                        <button class="absolute top-4 right-4 text-white close-popup">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="hidden md:block md:w-1/2 flex flex-col justify-center space-y-4">
+                                <h2 class="text-[35px] font-neue-extrabold text-white text-center">MOTESM AGGAD</h2>
+                                <img src="images/motasem.png" alt="Motesm Aggad" class="w-full rounded-lg">
+                            </div>
+                            <div class="md:w-2/3">
+                                <div class="mt-20">
+                                    <h3 class="text-[#D4AF37] text-lg font-bold mb-2">Experience</h3>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>20+ years in private equity and corporate finance.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Deep understanding of Middle Eastern markets and regulations.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Expertise in cross-border transactions and strategic investments.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Current</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Director at Hauberk Capital.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Previous Roles</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Managing Partner at MENA Investment Partners, Dubai.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Executive Director at Gulf Capital Advisors.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Investment Director at Regional Growth Fund, Saudi Arabia.</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Senior Associate at Middle East Banking Group.</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-[#D4AF37] font-bold mt-4 mb-1">Education</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>MBA from INSEAD (2004).</span>
+                                        </li>
+                                        <li class="flex">
+                                            <span class="mr-2 text-[#D4AF37]">•</span>
+                                            <span>Bachelor's in Finance from American University of Beirut (2000).</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <p class="text-sm mt-4">
+                                        Motesm's strategic insights and extensive network across the Middle East have been instrumental in expanding Hauberk Capital's regional presence and developing tailored investment solutions for high-net-worth clients.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const dots = document.querySelectorAll('.pagination-dot');
+                const slides = document.querySelectorAll('.director-slide');
+                const mobileSlides = document.querySelectorAll('.mobile-slide');
+                const mobileSlider = document.getElementById('mobile-slider');
+                const prevButton = document.getElementById('prev-slide');
+                const nextButton = document.getElementById('next-slide');
+                const mobilePrevButton = document.getElementById('mobile-prev-slide');
+                const mobileNextButton = document.getElementById('mobile-next-slide');
+                let currentSlide = 2; // Start with the third slide active (index 2)
+                
+                // Function to update the active slide
+                function updateSlide(index) {
+                    // Update dots
+                    dots.forEach(dot => {
+                        dot.classList.remove('bg-[#D4AF37]');
+                        dot.classList.add('bg-white/30');
+                        dot.classList.remove('active');
+                    });
+                    dots[index].classList.remove('bg-white/30');
+                    dots[index].classList.add('bg-[#D4AF37]');
+                    dots[index].classList.add('active');
+                    
+                    // Update mobile slider position
+                    if (mobileSlider) {
+                        mobileSlider.style.transform = `translateX(-${index * 100}%)`;
+                    }
+                    
+                    // Update current slide index
+                    currentSlide = index;
+                }
+                
+                // Add click event to dots
+                dots.forEach(dot => {
+                    dot.addEventListener('click', function() {
+                        const slideIndex = parseInt(this.getAttribute('data-slide'));
+                        updateSlide(slideIndex);
+                    });
+                });
+                
+                // Desktop Previous slide button
+                prevButton.addEventListener('click', function() {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) {
+                        newIndex = dots.length - 1;
+                    }
+                    updateSlide(newIndex);
+                });
+                
+                // Desktop Next slide button
+                nextButton.addEventListener('click', function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= dots.length) {
+                        newIndex = 0;
+                    }
+                    updateSlide(newIndex);
+                });
+                
+                // Mobile Previous slide button
+                mobilePrevButton.addEventListener('click', function() {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) {
+                        newIndex = dots.length - 1;
+                    }
+                    updateSlide(newIndex);
+                });
+                
+                // Mobile Next slide button
+                mobileNextButton.addEventListener('click', function() {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= dots.length) {
+                        newIndex = 0;
+                    }
+                    updateSlide(newIndex);
+                });
+                
+                // Initialize with the third slide active
+                updateSlide(currentSlide);
+                
+                // Director popup functionality
+                const directorImages = document.querySelectorAll('.director-image');
+                const closeButtons = document.querySelectorAll('.close-popup');
+                
+                // Open popup when clicking on director image
+                directorImages.forEach(image => {
+                    image.addEventListener('click', function() {
+                        const directorName = this.getAttribute('data-director');
+                        const popup = document.getElementById(`director-popup-${directorName}`);
+                        if (popup) {
+                            popup.classList.remove('hidden');
+                            document.body.style.overflow = 'hidden'; // Prevent scrolling
+                        }
+                    });
+                });
+                
+                // Close popup when clicking on close button
+                closeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const popup = this.closest('[id^="director-popup-"]');
+                        if (popup) {
+                            popup.classList.add('hidden');
+                            document.body.style.overflow = ''; // Restore scrolling
+                        }
+                    });
+                });
+                
+                // Close popup when clicking outside the content
+                document.querySelectorAll('[id^="director-popup-"]').forEach(popup => {
+                    popup.addEventListener('click', function(e) {
+                        if (e.target === this) {
+                            this.classList.add('hidden');
+                            document.body.style.overflow = ''; // Restore scrolling
+                        }
+                    });
+                });
+                
+                // Close popup with Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('[id^="director-popup-"]').forEach(popup => {
+                            if (!popup.classList.contains('hidden')) {
+                                popup.classList.add('hidden');
+                                document.body.style.overflow = ''; // Restore scrolling
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    </section>
+
+
+    <section class="bg-[#041B44] text-white py-16 md:py-24 bg-[url('images/mobile-departments-bg.png')] md:bg-[url('images/departments-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-6">
+                <h2 class="text-[32px] md:text-[48px] font-neue-extrabold text-white">HAUBERK DEPARTMENTS</h2>
+            </div>
+            
+            <!-- Section Description -->
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <p class="text-white opacity-70 font-poppins text-[18px] md:text-[18px]">
+                    Explore the dynamic teams that drive our innovation and expertise, each dedicated to optimizing your wealth advisory experience.
+                </p>
+            </div>
+            <!-- Department Tabs -->
+            <div class="max-w-5xl mx-auto">
+                <!-- Tab Navigation -->
+                <div class="flex flex-wrap justify-center">
+                    <button class="tab-button bg-[#D4AF37] text-white py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-transparent rounded-l-lg" data-tab="investment">
+                        INVESTMENT<br>ADVISORY
+                    </button>
+                    <button class="tab-button bg-[#D4AF37]/80 text-white py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-transparent" data-tab="financial">
+                        FINANCIAL<br>PLANNING
+                    </button>
+                    <button class="tab-button bg-white text-[#041B44] py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-[#D4AF37]" data-tab="research">
+                        RESEARCH<br>&ANALYSIS
+                    </button>
+                    <button class="tab-button bg-[#D4AF37]/80 text-white py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-transparent" data-tab="client">
+                        CLIENT<br>RELATIONS
+                    </button>
+                    <button class="tab-button bg-[#D4AF37]/80 text-white py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-transparent" data-tab="compliance">
+                        COMPLIANCE<br>AND LEGAL
+                    </button>
+                    <button class="tab-button bg-[#D4AF37]/80 text-white py-3 px-4 md:px-6 font-neue-bold text-sm md:text-base border-b-2 border-transparent rounded-r-lg " data-tab="operations">
+                        OPERATIONS &<br>ADMINISTRATION
+                    </button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="bg-white rounded-[20px] overflow-hidden">
+                    <!-- Investment Advisory Content -->
+                    <div class="tab-content hidden" id="investment-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/placeholder.png" alt="Investment Advisory" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">INVESTMENT ADVISORY</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    Our Investment Advisory team creates personalized investment strategies aligned with your financial goals and risk tolerance. They continuously monitor market trends to optimize your portfolio performance.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Investment Advisory team</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Financial Planning Content -->
+                    <div class="tab-content hidden" id="financial-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/placeholder.png" alt="Financial Planning" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">FINANCIAL PLANNING</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    Our Financial Planning team helps clients develop comprehensive strategies for wealth preservation, tax efficiency, retirement planning, and estate planning to ensure long-term financial security.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Financial Planning team</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Research & Analysis Content -->
+                    <div class="tab-content" id="research-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/research.png" alt="Research & Analysis" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">RESEARCH &ANALYSIS</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    The Research and Analysis team conducts in-depth analysis of financial markets, economic trends, and specific investment opportunities. Their insights and reports support the Investment Management team in making informed investment decisions.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Research & Analysis team</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Client Relations Content -->
+                    <div class="tab-content hidden" id="client-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/placeholder.png" alt="Client Relations" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">CLIENT RELATIONS</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    Our Client Relations team serves as your dedicated point of contact, ensuring prompt communication and personalized service. They work closely with all departments to address your needs efficiently.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Client Relations team</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compliance and Legal Content -->
+                    <div class="tab-content hidden" id="compliance-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/placeholder.png" alt="Compliance and Legal" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">COMPLIANCE AND LEGAL</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    Our Compliance and Legal team ensures all activities adhere to regulatory requirements and best practices. They provide guidance on legal matters and risk management to protect client interests.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Compliance and Legal team</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Operations & Administration Content -->
+                    <div class="tab-content hidden" id="operations-content">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 p-6 md:p-8">
+                                <img src="images/placeholder.png" alt="Operations & Administration" class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-2/3 p-6 md:p-8">
+                                <div class="text-[#D4AF37] text-sm mb-2">Know Hauberk</div>
+                                <h3 class="text-xl md:text-2xl font-neue-bold text-[#041B44] mb-4">OPERATIONS & ADMINISTRATION</h3>
+                                <p class="text-[#041B44] opacity-70 font-sf-pro-regular leading-relaxed mb-6">
+                                    The Operations & Administration team manages the day-to-day processes that support our advisory services. They handle account administration, reporting, and technology infrastructure to ensure seamless client experiences.
+                                </p>
+                                <a href="#" class="text-[#D4AF37] font-poppins text-[12.56px] md:text-[15.07px] font-normal hover:underline md:mt-14 inline-block">Contact Hauberk Operations & Administration team</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JavaScript for Tabs -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get all tab buttons and content
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                // Function to activate tab
+                function activateTab(tabName) {
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Reset all tab buttons
+                    tabButtons.forEach(button => {
+                        button.classList.remove('bg-white');
+                        button.classList.remove('text-[#041B44]');
+                        button.classList.add('bg-[#D4AF37]/80');
+                        button.classList.add('text-white');
+                        button.classList.remove('border-[#D4AF37]');
+                        button.classList.add('border-transparent');
+                        button.classList.remove('rounded-t-lg');
+                    });
+                    
+                    // Show the selected tab content
+                    const selectedTab = document.getElementById(`${tabName}-content`);
+                    if (selectedTab) {
+                        selectedTab.classList.remove('hidden');
+                    }
+                    
+                    // Highlight the active tab button
+                    const activeButton = document.querySelector(`.tab-button[data-tab="${tabName}"]`);
+                    if (activeButton) {
+                        activeButton.classList.remove('bg-[#D4AF37]/80');
+                        activeButton.classList.remove('text-white');
+                        activeButton.classList.add('bg-white');
+                        activeButton.classList.add('text-[#041B44]');
+                        activeButton.classList.remove('border-transparent');
+                        activeButton.classList.add('border-[#D4AF37]');
+                        activeButton.classList.add('rounded-t-lg');
+                    }
+                }
+                
+                // Add click event to tab buttons
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const tabName = this.getAttribute('data-tab');
+                        activateTab(tabName);
+                    });
+                });
+                
+                // Initialize with Research & Analysis tab active
+                activateTab('research');
+            });
+        </script>
+    </section>
+
+    <footer class="bg-[#041B44] text-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Logo for mobile -->
+            <div class="block md:hidden mb-6">
+                <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+            </div>
+            
+            <!-- Mobile navigation accordion -->
+            <div class="md:hidden">
+                <!-- Home dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services & Programs dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Follow Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="hidden dropdown-content pb-4">
+                        <div class="flex space-x-4 mb-6 pt-2">
+                            <a href="#" class="text-white">
+                                <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop footer - keep existing code -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- ... existing code for desktop ... -->
+                <!-- Column 1: Home -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Services & Programs -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Follow Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+            <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                    <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            
+            </div>
+            
+            <!-- Newsletter subscribe -->
+            <div class="mt-6 mb-10 md:w-[50%]">
+                <div class="flex flex-row gap-2">
+                    <input 
+                        type="email" 
+                        placeholder="Subscribe to Our Newsletter" 
+                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                    >
+                    <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                        REQUEST A MEETING
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                ADGM Financial Regulated Company, FSP no. 220131
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+            </div>
+            <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+            <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                    ADGM Financial Regulated Company, FSP no. 220131
+                </div>
+                <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                    © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                </div>
+                <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                    <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+<script src="index.js"></script>
+</body>
+</html>
+

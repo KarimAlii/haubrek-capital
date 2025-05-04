@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body class="bg-[#041B44]">
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+        <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+            <div class="container mx-auto">
+                <!-- Desktop and Mobile header -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                        </a>
+                    </div>
+                    <!-- Burger Menu Button -->
+                    <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <ul class="flex items-center space-x-6">
+                            <li class="group relative">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="group relative">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    About us
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Services
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Resources Center
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                                <span class="text-[#BF9874]">|</span>
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                            </div>
+                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                    <ul class="flex flex-col space-y-4">
+                        <li class="group">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Home
+                            </a>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Contact Us
+                            </a>
+                        </li>
+                        <div class="flex items-center space-x-2 py-2 text-base">
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                            <span class="text-[#BF9874]">|</span>
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                        </div>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-navy-900 text-white h-screen relative">
+        <!-- Slider container -->
+        <div class="relative overflow-hidden h-full">
+            <!-- Slide content wrapper -->
+            <div class="flex flex-col h-full">
+                <!-- Slides -->
+                <div class="flex transition-transform duration-500 ease-in-out h-full" id="slider">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <img src="images/hero1.png" alt="Wealth Management" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-full flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">YOUR WEALTH<br/>JOURNEY PARTNERS</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently.Learn more<br class="hidden sm:block"/> about how we can help you achieve financial success.</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <img src="images/hero2.png" alt="Wealth Management" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-full flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">TAILORED PROGRAM FOR<br class="hidden sm:block"/>GROWING YOUR WEALTH</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently.Learn more<br class="hidden sm:block"/> about how we can help you succeed.</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <img src="images/hero3.png" alt="Wealth Management" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-full flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">SECURE AND EXPAND<br/> YOUR WEALTH</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently. Learn more<br class="hidden sm:block"/> about how we can help you achieve financial success.</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation (Dots and Arrows) -->
+                <div class="lg:hidden absolute px-4 pb-10 bottom-8 w-full">
+                    <div class="container mx-auto px-4 flex items-center justify-between">
+                        <!-- Dots on the left -->
+                        <div class="flex space-x-2">
+                            <button class="mobile-dot w-4 h-4 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(0)"></button>
+                            <button class="mobile-dot w-4 h-4 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(1)"></button>
+                            <button class="mobile-dot w-4 h-4 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(2)"></button>
+                        </div>
+                        <!-- Arrows on the right -->
+                        <div class="flex items-center space-x-6">
+                            <button class="hover:opacity-75" onclick="moveSlide(-1)">
+                                <i class="fas fa-chevron-left text-[#FFFFFF] text-3xl"></i>
+                            </button>
+                            <button class="hover:opacity-75" onclick="moveSlide(1)">
+                                <i class="fas fa-chevron-right text-[#FFFFFF] text-3xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:block">
+                    <!-- Navigation Buttons -->
+                    <button class="absolute left-8 top-1/2 transform -translate-y-1/2 p-3 hover:opacity-75" onclick="moveSlide(-1)">
+                        <i class="fas fa-chevron-left text-white text-3xl"></i>
+                    </button>
+                    <button class="absolute right-8 top-1/2 transform -translate-y-1/2 p-3 hover:opacity-75" onclick="moveSlide(1)">
+                        <i class="fas fa-chevron-right text-white text-3xl"></i>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                        <button class="desktop-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(0)"></button>
+                        <button class="desktop-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(1)"></button>
+                        <button class="desktop-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(2)"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Can Assist Section -->
+    <section class="bg-white py-8 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
+                <!-- Left Side: Text and Service Buttons -->
+                <div class="mb-8 lg:mb-0">
+                    <h2 class="text-[30px] xl:text-[48px] font-neue-extrabold text-[#041B44] mb-3 md:mb-4 text-center lg:text-left leading-[32.1px] xl:leading-[62px]">HOW WE CAN<br class="lg:hidden"/> ASSIST</h2>
+                    <p class="text-[#041B44] lg:pr-10 mb-6 md:mb-8 max-w-xl font-['Poppins'] tracking-[0] xl:text-[18px] text-[1rem] opacity-60 text-center lg:text-left mx-auto lg:mx-0">
+                        Our services are designed to help you achieve your goals and enrich your investment journey, supported by our professionals who serve as your dedicated investment office.
+                    </p>
+                    
+                    <!-- Our Services Button (desktop only) -->
+                    <button class="hidden lg:block bg-[#D4AF37] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg mb-8 md:mb-12 font-neue-extrabold xl:text-[18px]">OUR SERVICES</button>
+
+                    <!-- Mobile Image (shown only on mobile) -->
+                    <div class="block lg:hidden mb-6">
+                        <div class="relative w-full h-[280px] rounded-[20px] overflow-hidden">
+                            <img src="images/assist1.png" alt="Governance Advisory" class="w-full h-full object-cover"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-4">
+                                <div class="flex flex-col">
+                                    <div>
+                                        <h3 class="text-lg font-neue-bold mb-2 text-white">GOVERNANCE ADVISORY</h3>
+                                        <p class="text-[13px] xl:text-[18px] font-['Poppins'] mb-2 text-white">The investment offices and Endowment funds for HNWI, Family Offices, and Endowments</p>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <a href="governance-services.html" class="text-[#D4AF37] font-neue-bold text-sm">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Service Buttons -->
+                    <div class="grid grid-cols-2 gap-3 lg:grid-cols-2 lg:gap-4 md:gap-6 xl:gap-8">
+                        <button class="service-btn bg-[#D4AF37] text-white font-neue-bold p-4 lg:p-6 md:p-8 xl:p-8 rounded-lg hover:opacity-90 transition-all text-center text-[15.54px] lg:text-base md:text-lg xl:text-[30px] h-[100px] lg:h-[160px] xl:h-[160px] flex items-center justify-center leading-[1.2] lg:leading-[1.1]" data-index="0">
+                            <span>GOVERNANCE<br/>ADVISORY</span>
+                        </button>
+                        <button class="service-btn bg-[#1a1f2e] text-white font-neue-bold p-4 lg:p-6 md:p-8 xl:p-8 rounded-lg hover:opacity-90 transition-all text-center text-[15.54px] lg:text-base md:text-lg xl:text-[30px] h-[100px] lg:h-[160px] xl:h-[160px] flex items-center justify-center leading-[1.2] lg:leading-[1.1]" data-index="1">
+                            <span>WEALTH<br/>PLANNING</span>
+                        </button>
+                        <button class="service-btn bg-[#1a1f2e] text-white font-neue-bold p-4 lg:p-6 md:p-8 xl:p-8 rounded-lg hover:opacity-90 transition-all text-center text-[15.54px] lg:text-base md:text-lg xl:text-[30px] h-[100px] lg:h-[160px] xl:h-[160px] flex items-center justify-center leading-[1.2] lg:leading-[1.1]" data-index="2">
+                            <span>STRATEGIC<br/>INVESTMENT<br/>ADVISORY</span>
+                        </button>
+                        <button class="service-btn bg-[#1a1f2e] text-white font-neue-bold p-4 lg:p-6 md:p-8 xl:p-8 rounded-lg hover:opacity-90 transition-all text-center text-[15.54px] lg:text-base md:text-lg xl:text-[30px] h-[100px] lg:h-[160px] xl:h-[160px] flex items-center justify-center leading-[1.2] lg:leading-[1.1]" data-index="3">
+                            <span>CIO OFFICE<br/>SERVICES</span>
+                        </button>
+                    </div>
+
+                    <!-- Our Services Button (mobile only) -->
+                    <button class="block lg:hidden bg-[#D4AF37] md:text-[18px] text-white px-6 py-3 rounded-lg font-neue-extrabold text-[10.28px] mt-6 mx-auto">OUR SERVICES</button>
+                </div>
+            
+                <!-- Right Side: Image and Description -->
+                <div class="hidden lg:block relative w-full h-[500px] xl:h-[715px] overflow-hidden lg:mt-[-45px]" id="serviceContent">
+                    <!-- Content will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+      
+
+    <!-- Diversified Programs Section -->
+    <section class="bg-[#041B44] px-[35px] h-[150vh] md:h-[180vh] lg:h-[100vh] relative overflow-hidden flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 hidden lg:block">
+            <img src="images/diversified-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
+        </div>
+        
+        <!-- Mobile Background Image -->
+        <div class="absolute inset-0 block lg:hidden">
+            <img src="images/mobile-diversified-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
+        </div>
+
+        <!-- Content Container -->
+        <div class="container mx-auto px-4 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <!-- Left Side: Text and Icons -->
+                <div class="lg:w-1/2 text-white flex flex-col items-center lg:items-start">
+                    <h2 class="text-[20px] md:text-[48px] font-neue-extrabold md:leading-[48px] mb-6 tracking-[0px] leading-[31.9px] lg:leading-[62px] text-center lg:text-left">
+                        DIVERSIFIED<br class="hidden md:block"/>PROGRAMS FOR AN<br class="hidden md:block"/> IDEAL PORTFOLIO
+                    </h2>
+                    <p class="text-[16px] lg:text-[17px] font-['Poppins'] tracking-[0px] opacity-70 text-white mb-8 max-w-xl text-center lg:text-left">
+                        Unlock the full potential of your wealth with our diversified programs, tailored to your unique needs. Safeguard your assets, maximize charitable impact, simplify financial complexities, and align with your values. Discover how our expertise can enhance your financial strategy and secure your future.
+                    </p>
+
+                    <!-- Button (desktop only) -->
+                    <button class="hidden lg:block bg-[#D4AF37] text-[18px] text-white px-6 py-3 rounded-lg font-neue-extrabold hover:opacity-90 transition-all">
+                        CHECK OUR PROGRAMS
+                    </button>
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="hidden lg:block lg:w-1/2">
+                    <img src="images/diversified.png" alt="Diversified Programs" class="w-full h-auto rounded-lg"/>
+                </div>
+
+                <!-- Mobile image (only visible on mobile) -->
+                <div class="block md:pr-[100px] md:pl-[100px] lg:hidden w-full">
+                    <img src="images/mobile-diversified.png" alt="Diversified Programs" class="w-full h-auto rounded-lg"/>
+                    <!-- Button (mobile only) -->
+                    <button class="block lg:hidden bg-[#D4AF37] text-[13.03px] text-white px-8 py-3 rounded-lg font-neue-extrabold hover:opacity-90 transition-all mt-[50px] mx-auto mt-6">
+                        CHECK OUR PROGRAMS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board of Directors Section -->
+    <section class="py-16 relative overflow-hidden bg-[#f5f5f5]">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0">
+            <img src="images/directors-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
+        </div>
+        
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-[32px] leading-[33.5px] md:text-4xl xl:text-[48px] xl:leading-[62px] font-neue-extrabold text-[#041B44] mb-4 text-center md:text-center">BOARD OF<br class="md:hidden"/> DIRECTORS</h2>
+            
+            <p class="text-[#041B44] text-[16px] md:text-[18px] font-['Poppins'] tracking-[0] opacity-60 mb-12 mx-auto text-center md:text-start md:px-0">
+                Hauberk Capital offers top-tier wealth advisory services for High-Net-Worth Individuals, Family Offices, and Endowments.Our comprehensive approach encompasses governance of wealth structure, thorough planning, in-depth analysis, and development of investment policies tailored to client objectives and risk profiles. Additionally, we provide CIO office outsourcing services, acting as a dedicated investment department. We handle strategy manager selection, portfolio performance monitoring, periodic reporting, and execute rebalancing based on macroeconomic conditions, ensuring clients' wealth journeys thrive.
+            </p>
+            
+            <!-- Desktop View - Grid -->
+            <div class="hidden md:grid md:grid-cols-3 gap-8 mt-12">
+                <!-- Director 1 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4">
+                        <img src="images/wael.png" alt="Wael Fawzi" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-[#041B44] font-neue-bold text-xl mt-3">Wael Fawzi</h3>
+                    <p class="text-[#041B44] opacity-70 font-['Poppins']">Managing Director</p>
+                </div>
+                
+                <!-- Director 2 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4">
+                        <img src="images/natalia.png" alt="Natalia Biryukova" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-[#041B44] font-neue-bold text-xl mt-3">Natalia Biryukova</h3>
+                    <p class="text-[#041B44] opacity-70 font-['Poppins']">Director</p>
+                </div>
+                
+                <!-- Director 3 -->
+                <div class="text-center">
+                    <div class="bg-white rounded-lg overflow-hidden w-[280px] h-[380px] mx-auto mb-4">
+                        <img src="images/motasem.png" alt="Motesm Aggad" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-[#041B44] font-neue-bold text-xl mt-3">Motesm Aggad</h3>
+                    <p class="text-[#041B44] opacity-70 font-['Poppins']">Director</p>
+                </div>
+            </div>
+            <!-- Mobile View - Slider -->
+            <div class="md:hidden relative mt-8">
+                <div class="overflow-hidden">
+                    <div id="directors-slider" class="flex transition-transform duration-300">
+                        <!-- Director 1 -->
+                        <div class="min-w-full px-4">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4">
+                                    <img src="images/wael.png" alt="Wael Fawzi" class="w-full h-full object-cover object-center">
+                                </div>
+                                <h3 class="text-[#041B44] font-neue-bold text-xl mt-2">Wael Fawzi</h3>
+                                <p class="text-[#041B44] opacity-70 font-['Poppins'] text-sm">Managing Director</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Director 2 -->
+                        <div class="min-w-full px-4">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4">
+                                    <img src="images/natalia.png" alt="Natalia Biryukova" class="w-full h-full object-cover object-center">
+                                </div>
+                                <h3 class="text-[#041B44] font-neue-bold text-xl mt-2">Natalia Biryukova</h3>
+                                <p class="text-[#041B44] opacity-70 font-['Poppins'] text-sm">Director</p>
+                            </div>
+                        </div>
+                        <!-- Director 3 -->
+                        <div class="min-w-full px-4">
+                            <div class="flex flex-col items-center">
+                                <div class="bg-white rounded-lg overflow-hidden w-[240px] h-[320px] mb-4">
+                                    <img src="images/motasem.png" alt="Motesm Aggad" class="w-full h-full object-cover object-center">
+                                </div>
+                                <h3 class="text-[#041B44] font-neue-bold text-xl mt-2">Motesm Aggad</h3>
+                                <p class="text-[#041B44] opacity-70 font-['Poppins'] text-sm">Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2  rounded-full p-2 " onclick="moveDirectorsSlide(-1)">
+                    <i class="fas fa-chevron-left text-[#041B44] text-xl"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2  rounded-full p-2 " onclick="moveDirectorsSlide(1)">
+                    <i class="fas fa-chevron-right text-[#041B44] text-xl"></i>
+                </button>
+                
+                <!-- Dots -->
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="director-dot w-3 h-3 rounded-full bg-[#D4AF37]" onclick="goToDirectorSlide(0)"></button>
+                    <button class="director-dot w-3 h-3 rounded-full bg-[#041B44]" onclick="goToDirectorSlide(1)"></button>
+                    <button class="director-dot w-3 h-3 rounded-full bg-[#041B44]" onclick="goToDirectorSlide(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proven Track Record Section -->
+    <section class="pt-[120px] pb-16 bg-[#041B44] text-white relative overflow-hidden">
+        <!-- Background Pattern (optional) -->
+        <div class="absolute inset-0 opacity-20">
+            <img src="images/record-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
+        </div>
+        
+        <div class="container mx-auto px-4 relative">
+            <h2 class=" text-[32px] md:text-4xl xl:text-[54px] mt-[-50px] md:mt-0 pl-10 pr-10 md:pl-0 md:pr-0 font-neue-extrabold xl:mb-10 text-white text-center sm:text-left">PROVEN TRACK RECORD</h2>
+            
+            <p class="text-[16px] md:text-[18px] xl:text-[16.82px] font-['Poppins'] tracking-[0] mb-10 max-w-3xl text-center sm:text-left">
+                Since 2019, we've been dedicated to sculpting success stories, navigating
+                markets, and securing brighter futures for our clients. Trust in our proven
+                track record as we pave the way to financial prosperity together.
+            </p>
+            
+            <!-- Mobile-only view (3 in a row with black text) -->
+            <div class="sm:hidden flex flex-col items-center mb-8">
+                <!-- Metrics in a row -->
+                <div class="flex justify-center flex-wrap gap-4" id="mobile-metrics-slider" touch-action="pan-y pinch-zoom">
+                    <!-- Metric 1 -->
+                    <div class="flex flex-col items-center w-[100px] transition-opacity duration-300">
+                        <div class="relative w-[100px] h-[100px] mb-2">
+                            <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-[16px] text-[#041B44] font-['Poppins'] font-bold">650.0 M$</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-[#FFFFFF] font-['Poppins'] text-[12px] tracking-[0]">Assets Under<br/>Advisory</p>
+                    </div>
+                    
+                    <!-- Metric 2 -->
+                    <div class="flex flex-col items-center w-[100px] transition-opacity duration-300">
+                        <div class="relative w-[100px] h-[100px] mb-2">
+                            <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-[16px] text-[#041B44] font-['Poppins'] font-bold">1,300.0</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-[#FFFFFF] font-['Poppins'] text-[12px] tracking-[0]">The average client's<br/>portfolio return</p>
+                    </div>
+                    
+                    <!-- Metric 3 -->
+                    <div class="flex flex-col items-center w-[100px] transition-opacity duration-300">
+                        <div class="relative w-[100px] h-[100px] mb-2">
+                            <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-[16px] text-[#041B44] font-['Poppins'] font-bold">8.0</span>
+                            </div>
+                        </div>
+                        <p class="text-center text-[#FFFFFF] font-['Poppins'] text-[12px] tracking-[0]">Family<br/>Constitutions</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile dots (aligned left) - larger and interactive -->
+                <div class="w-full flex justify-start pl-4 mt-8">
+                    <div class="flex space-x-4">
+                        <button class="mobile-metrics-dot w-4 h-4 rounded-full bg-[#D4AF37] cursor-pointer transition-all duration-300" onclick="goToMobileMetricsSlide(0)"></button>
+                        <button class="mobile-metrics-dot w-4 h-4 rounded-full bg-white opacity-30 cursor-pointer transition-all duration-300" onclick="goToMobileMetricsSlide(1)"></button>
+                        <button class="mobile-metrics-dot w-4 h-4 rounded-full bg-white opacity-30 cursor-pointer transition-all duration-300" onclick="goToMobileMetricsSlide(2)"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop/Tablet Metrics Slider (unchanged) -->
+            <div class="hidden sm:block relative mt-12">
+                <!-- Left Arrow -->
+                <button class="absolute left-0 top-1/3 transform -translate-y-1/2 z-10 text-white" onclick="moveMetricsSlide(-1)">
+                    <i class="fas fa-chevron-left text-3xl"></i>
+                </button>
+                
+                <!-- Right Arrow -->
+                <button class="absolute right-0 top-1/3 transform -translate-y-1/2 z-10 text-white" onclick="moveMetricsSlide(1)">
+                    <i class="fas fa-chevron-right text-3xl"></i>
+                </button>
+                
+                <!-- Slider Container -->
+                <div class="overflow-hidden mx-12">
+                    <div id="metrics-slider" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- SLIDE 1 -->
+                        <div class="min-w-full flex-shrink-0 flex flex-wrap justify-center">
+                            <!-- Metric 1 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">650.0 M$</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Assets Under<br/>Advisory</p>
+                            </div>
+                            
+                            <!-- Metric 2 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">1,300.0</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">The average client's<br/>portfolio return</p>
+                            </div>
+                            
+                            <!-- Metric 3 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">8.0</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Family<br/>Constitutions</p>
+                            </div>
+                            
+                            <!-- Metric 4 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">10.2%</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Global Investment<br/>Managers</p>
+                            </div>
+                            
+                            <!-- Metric 5 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">16.0</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Investment Policy<br/>Statement</p>
+                            </div>
+                        </div>
+                        
+                        <!-- SLIDE 2 -->
+                        <div class="min-w-full flex-shrink-0 flex flex-wrap justify-center">
+                            <!-- Metric 6 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">24.7%</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Annual Growth<br/>Rate</p>
+                            </div>
+                            
+                            <!-- Metric 7 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">42</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Satisfied<br/>Clients</p>
+                            </div>
+                            
+                            <!-- Metric 8 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">15+</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Years of<br/>Experience</p>
+                            </div>
+                            
+                            <!-- Metric 9 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">28</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Investment<br/>Professionals</p>
+                            </div>
+                            
+                            <!-- Metric 10 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">12.5M</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Average<br/>Portfolio Size</p>
+                            </div>
+                        </div>
+                        
+                        <!-- SLIDE 3 -->
+                        <div class="min-w-full flex-shrink-0 flex flex-wrap justify-center">
+                            <!-- Metric 11 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">5</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Global<br/>Offices</p>
+                            </div>
+                            
+                            <!-- Metric 12 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">97%</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Client<br/>Retention</p>
+                            </div>
+                            
+                            <!-- Metric 13 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">25+</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Industry<br/>Awards</p>
+                            </div>
+                            
+                            <!-- Metric 14 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">130+</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Investment<br/>Strategies</p>
+                            </div>
+                            
+                            <!-- Metric 15 -->
+                            <div class="w-full sm:w-1/3 md:w-1/5 px-4 flex flex-col items-center mb-8">
+                                <div class="relative w-[150px] h-[150px] mb-4">
+                                    <img src="images/record.svg" alt="Record Icon" class="w-full h-full"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-[20px] text-[#041B44] font-['Poppins'] font-bold">18%</span>
+                                    </div>
+                                </div>
+                                <p class="text-center text-[#FFFFFF] font-['Poppins'] font-regular text-[19.84px] tracking-[0]">Risk-Adjusted<br/>Returns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="metrics-dot w-3 h-3 rounded-full bg-[#D4AF37]" onclick="goToMetricsSlide(0)"></button>
+                    <button class="metrics-dot w-3 h-3 rounded-full bg-gray-400" onclick="goToMetricsSlide(1)"></button>
+                    <button class="metrics-dot w-3 h-3 rounded-full bg-gray-400" onclick="goToMetricsSlide(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Road Map Section -->
+    <section class="bg-[#E9E9E9] text-center p-10">
+        <h1 class="text-[25px] md:text-[48px] font-geometos-neue font-extrabold md:leading-[62px] text-[#041B44] mb-16 md:mb-32 leading-[48px]">HOW CAN WE START OUR <br/> JOURNEY TOGETHER?</h1>
+        
+        <!-- Desktop version - hidden on mobile -->
+        <div class="hidden md:grid max-w-[1300px] mx-auto grid-cols-4 lg:grid-cols-8 gap-y-2 gap-x-2 justify-items-center">
+          <!-- Step Item Template -->
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo1.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[73px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-gray-800 text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Strategic <br/> Decision</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo2.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[183px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Governance</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo3.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[73px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Current portfolio<br/>analysis</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo4.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[183px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Investment Policy<br/> Statement</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo5.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[73px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Investment<br/>Implementation</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo6.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[183px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Investment<br/>Structure</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo7.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[73px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Mangers Search<br/>& Selection</p>
+          </div>
+      
+          <div class="flex flex-col items-center">
+            <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
+              <img src="images/journey-logo8.svg" alt="icon" class="" />
+            </div>
+            <div class="h-[183px] w-[2px] bg-[#041B44] mb-2"></div>
+            <p class="text-[25px] text-[#041B44] text-center font-['Poppins'] font-medium leading-[34px] whitespace-nowrap">Monitoring<br/>Performance</p>
+          </div>
+        </div>
+        
+        <!-- Mobile version - only shows image -->
+        <div class="md:hidden mx-auto mb-8">
+          <img src="images/mobile.map.jpg" alt="Journey Map" class="w-full mx-auto" />
+        </div>
+      
+        <div class="mt-16">
+          <a href="request-a-meeting.html" class="bg-[#D4AF37] hover:bg-[#041B44] text-[#E9E9E9] font-geometos-neue font-extrabold text-[17.82px] py-3 px-6 rounded-xl inline-block">REQUEST A MEETING</a>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="py-16 bg-[#041B44] text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[32px] xl:text-[54px] xl:font-neue-bold font-neue-extrabold text-center mb-16">OUR INSIGHTS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 px-6 md:px-0">
+                <!-- Blogs Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-[#D4AF37] text-[35.55px] font-['Poppins'] font-bold mb-6 text-center md:text-left">Blogs</h3>
+                    <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                        <img src="images/blog.png" alt="Blog Image" class="w-full h-auto">
+                        <div class="pt-4">
+                            <p class="text-white xl:text-[15.07px] font-['Poppins'] text-base mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique.</p>
+                            <a href="blog.html" class="text-[#D4AF37] font-neue-bold text-sm hover:underline">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Investor Library Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-[#D4AF37] text-[35.55px] font-['Poppins'] font-bold mb-6 text-center md:text-left">Investor Library</h3>
+                    <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                        <img src="images/investor.png" alt="Investor Library Image" class="w-full h-auto">
+                        <div class="pt-4">
+                            <p class="text-white xl:text-[15.07px] font-['Poppins'] text-base mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique.</p>
+                            <a href="blog2.html" class="text-[#D4AF37] font-neue-bold text-sm hover:underline">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- News & Events Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-[#D4AF37] text-[35.55px] font-['Poppins'] font-bold mb-6 text-center md:text-left">News & Events</h3>
+                    <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                        <img src="images/blog.png" alt="News & Events Image" class="w-full h-auto">
+                        <div class="pt-4">
+                            <p class="text-white xl:text-[15.07px] font-['Poppins'] text-base mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique.</p>
+                            <a href="blog-3.html" class="text-[#D4AF37] font-neue-bold text-sm hover:underline">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Studies Column -->
+                <div class="flex flex-col">
+                    <h3 class="text-[#D4AF37] text-[35.55px] font-['Poppins'] font-bold mb-6 text-center md:text-left">Case Studies</h3>
+                    <div class="bg-[#041B44] rounded-lg overflow-hidden mb-6">
+                        <img src="images/blog.png" alt="Case Studies Image" class="w-full h-auto">
+                        <div class="pt-4">
+                            <p class="text-white xl:text-[15.07px] font-['Poppins'] text-base mb-4">Unlock the full potential of your wealth with our diversified programs, tailored to your unique.</p>
+                            <a href="blog-4.html" class="text-[#D4AF37] font-neue-bold text-sm hover:underline">Learn More...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Ready To Start Growing Section -->
+    <section class="relative md:h-[60vh] pt-[10%] text-white overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/meeting-bg.png" alt="NYC Skyline" class="w-full h-full object-cover object-center"/>
+        </div>
+        
+        <!-- Content Container -->
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center mx-auto">
+                <!-- Left Content -->
+                <div class="mb-10 md:mb-0 w-full">
+                    <h2 class="text-[35.06px] md:text-[51.02px] leading-[1.1] font-neue-extrabold text-white mb-6">
+                        READY TO<br/>START GROWING?!
+                    </h2>
+                    <p class="text-[13.1px] leading-[18.8px] md:text-[19.06px] md:leading-[27.4px] font-['Poppins'] opacity-90 mb-8 max-w-md">
+                        Unlock the full potential of your wealth
+                    </p>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <a href="contact-us.html" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                            JOIN OUR MAILING LIST
+                        </a>
+                        
+                        <a href="request-a-meeting.html" class="inline-block bg-transparent leading-[25.1px] border-[1px] border-white text-white text-center xl:text-[19px] font-neue-extrabold px-[30px] py-[15px] md:text-[11px] md:px-[30px] md:py-[13.7px] xl:px-[70.5px] xl:py-[16.77px] rounded-md hover:bg-white/10 transition-all duration-300 sm:w-auto">
+                            REQUEST A MEETING
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Side is empty but takes up space -->
+                <div class="w-full md:w-1/2">
+                    <!-- Empty space to balance layout -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-[#041B44] text-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Logo for mobile -->
+            <div class="block md:hidden mb-6">
+                <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+            </div>
+            
+            <!-- Mobile navigation accordion -->
+            <div class="md:hidden">
+                <!-- Home dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services & Programs dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Follow Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="hidden dropdown-content pb-4">
+                        <div class="flex space-x-4 mb-6 pt-2">
+                            <a href="#" class="text-white">
+                                <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop footer - keep existing code -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- ... existing code for desktop ... -->
+                <!-- Column 1: Home -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Services & Programs -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Follow Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+            <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                    <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            
+            </div>
+            
+            <!-- Newsletter subscribe -->
+            <div class="mt-6 mb-10 md:w-[50%]">
+                <div class="flex flex-row gap-2">
+                    <input 
+                        type="email" 
+                        placeholder="Subscribe to Our Newsletter" 
+                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                    >
+                    <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                        REQUEST A MEETING
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                ADGM Financial Regulated Company, FSP no. 220131
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+            </div>
+            <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+            <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                    ADGM Financial Regulated Company, FSP no. 220131
+                </div>
+                <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                    © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                </div>
+                <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                    <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+<script src="index.js"></script>
+</body>
+</html>

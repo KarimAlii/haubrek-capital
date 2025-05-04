@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUBERK CAPITAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Add Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'neue-bold': ['Neue-Bold'],
+                        'neue-extrabold': ['Neue-ExtraBold'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Fix for missing fonts - add a fallback URL format */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Custom font classes for easier use */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif !important;
+            font-weight: bold;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif !important;
+            font-weight: 800;
+        }
+
+        .slide-1 { background-image: url('path/to/image1.jpg'); }
+        .slide-2 { background-image: url('path/to/image2.jpg'); }
+        .slide-3 { background-image: url('path/to/image3.jpg'); }
+        .slide-overlay {
+            background: rgba(26, 31, 46, 0.7);
+        }
+        .bg-navy-900 {
+            background-color: #1a1f2e;
+        }
+        .bg-navy-800 {
+            background-color: #2a2f3e;
+        }
+
+        /* Neue font definitions */
+        @font-face {
+            font-family: 'Neue-Bold';
+            src: url('fonts/Neue-Bold.otf') format('opentype'),
+                 url('fonts/Neue-Bold.woff2') format('woff2'),
+                 url('fonts/Neue-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Neue-ExtraBold';
+            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
+                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
+                 url('fonts/Neue-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* SF Pro Display font definitions */
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
+                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+                 url('fonts/SFProDisplay-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Utility classes for easy application */
+        .font-neue-bold {
+            font-family: 'Neue-Bold', sans-serif;
+        }
+
+        .font-neue-extrabold {
+            font-family: 'Neue-ExtraBold', sans-serif;
+        }
+
+        .font-sf-pro {
+            font-family: 'SF Pro Display', sans-serif;
+        }
+
+        .font-sf-pro-medium {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;
+        }
+
+        .font-sf-pro-regular {
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="absolute w-full z-10">
+        <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
+            <div class="container mx-auto">
+                <!-- Desktop and Mobile header -->
+                <div class="flex justify-between items-center">
+                    <div>
+                        <a href="index.html">
+                            <img src="images/logo.svg" alt="HAUBERK CAPITAL" class="h-8 sm:h-10 md:h-12 lg:h-full">
+                        </a>
+                    </div>
+                    <!-- Burger Menu Button -->
+                    <button id="burger-menu" class="lg:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center space-x-6">
+                        <ul class="flex items-center space-x-6">
+                            <li class="group relative">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="group relative">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    About us
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Services
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Resources Center
+                                    <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
+                                </a>
+                                <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                </div>
+                            </li>
+                            <li class="group relative">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                    Contact Us
+                                </a>
+                            </li>
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                                <span class="text-[#BF9874]">|</span>
+                                <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                            </div>
+                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
+                    <ul class="flex flex-col space-y-4">
+                        <li class="group">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Home
+                            </a>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <div class="flex items-center justify-between">
+                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
+                            </div>
+                            <div class="hidden pl-4 mt-2">
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                            </div>
+                        </li>
+                        <li class="group">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                                Contact Us
+                            </a>
+                        </li>
+                        <div class="flex items-center space-x-2 py-2 text-base">
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
+                            <span class="text-[#BF9874]">|</span>
+                            <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
+                        </div>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-navy-900 text-white h-screen md:h-[70vh] relative">
+        <div class="relative overflow-hidden h-full">
+            <div class="flex flex-col h-full">
+                <div class="flex transition-transform duration-500 ease-in-out h-full">
+                    <div class="w-full flex-shrink-0 relative">
+                        <div class="absolute inset-0">
+                            <!-- Desktop background -->
+                            <img src="images/about-us-hero.png" alt="Wealth Management" class="hidden md:block w-full h-full object-cover"/>
+                            <!-- Mobile background -->
+                            <img src="images/mobile-about-us-hero.png" alt="Wealth Management" class="block md:hidden w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute inset-0 "></div>
+                        <div class="relative h-[120vh] md:h-[90vh] flex items-center justify-center">
+                            <div class="container mx-auto text-center">
+                                <h1 class="text-[45px] xl:text-[78px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">ABOUT US</h1>
+                                <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF]/70 font-['Poppins'] font-regular">Uncover the story behind Hauberk Capital for Wealth <br class="hidden sm:block"/>Advisory</p>
+                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">REQUEST A MEETING</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative">
+        <div class="absolute inset-0">
+            <img src="images/mobile-about-who-we-are-bg.png" alt="Background" class="w-full h-full object-cover md:hidden"/>
+            <img src="images/about-who-we-are-bg.png" alt="Background" class="hidden md:block w-full h-full object-cover"/>
+        </div>
+        <div class="container mx-auto px-4 py-16 md:py-24 relative">
+            <div class="flex flex-col lg:flex-row">
+                <div class="w-full lg:w-[60%] pr-0 lg:pr-12">
+                    <h2 class="text-[40px] md:text-[54px] font-neue-extrabold text-[#041B44] mb-10 text-center md:text-left">WHO WE ARE</h2>
+                    
+                    <p class="text-[#041B44] font-sf-pro-regular text-lg mb-8 leading-relaxed">
+                        Hauberk Capital is an external Wealth Advisory firm that support High-Net-Worth Individuals, Family Offices, and Endowments by providing top-notch Wealth Advisory services.
+                    </p>
+                    
+                    <p class="text-[#041B44] font-sf-pro-regular text-lg mb-8 leading-relaxed">
+                        We believe in a holistic approach to wealth Advisory and strive for every aspect of the wealth life cycle, including governance of wealth structure, wealth planning, current situation analysis, and investment policy statement development that aligns with the client objectives and risk profile.
+                    </p>
+                    
+                    <p class="text-[#041B44] font-sf-pro-regular text-lg leading-relaxed">
+                        Additionally, we offer CIO office outsourcing services, in which we act as a dedicated investment department for our clients, obliging them with strategy advisors search and selection process, portfolio performance monitoring services, submitting essential periodic reports and executing rebalancing based on macroeconomic conditions for nourishing their tremendous wealth journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#041B44] text-white py-16 md:py-24 relative">
+        <!-- Background image placeholder -->
+        <div class="absolute inset-0">
+            <img src="images/concept-bg.png" alt="" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Container with relative positioning to appear above background -->
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Title centered in its own div -->
+            <div class="text-center mb-12">
+                <h2 class="text-[32px] md:text-[40px] xl:text-[48px] leading-[40px] xl:leading-[62px] font-neue-extrabold text-white">HAUBERK CAPITAL AS A CONCEPT</h2>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Left column: Text content -->
+                <div class="w-full lg:w-1/2 pr-0 lg:pr-12 mb-10 lg:mb-0">
+                    <!-- Protection text block -->
+                    <div class="mb-8">
+                        <p class="font-poppins text-[17px] leading-relaxed opacity-70">
+                            Historically, the hauberk was the armor that provided maximum and balanced protection for knights. Inspired by this, Hauberk Capital has developed a Wealth Advisory Philosophy that mirrors this concept. We aim to create a protective framework for our clients' wealth through strategic defensive allocations. Our model is built on four main pillars, as reflected in </br>our logo:
+                        </p>
+                    </div>
+                    
+                    <!-- Yield text block -->
+                    <div class="mb-8">
+                        <p class="font-poppins text-[17px] leading-relaxed opacity-70">
+                            <span class="text-[#D4AF37] font-neue-bold text-xl mb-2">Yield:</span> In terms of financial investment philosophy, looking for real yields is our main objective to create wealth through capital investment strategies.
+                        </p>
+                    </div>
+                    
+                    <!-- Defence text block -->
+                    <div class="mb-8">
+                        <p class="font-poppins text-[17px] leading-relaxed opacity-70">
+                            <span class="text-[#D4AF37] font-neue-bold text-xl mb-2">Defence:</span> We prioritize effectively protecting our clients' wealth through defensive investment allocations that stringently identify risk and security.
+                        </p>
+                    </div>
+                    
+                    <!-- Appreciation text block -->
+                    <div class="mb-8">
+                        <p class="font-poppins text-[17px] leading-relaxed opacity-70">
+                            <span class="text-[#D4AF37] font-neue-bold text-xl mb-2">Appreciation:</span> We aim to enhance the value of assets and investments over time to generate substantive gains for our clients.
+                        </p>
+                    </div>
+                    
+                    <!-- Liquidity text block -->
+                    <div>
+                        <p class="font-poppins text-[17px] leading-relaxed opacity-70">
+                            <span class="text-[#D4AF37] font-neue-bold text-xl mb-2">Liquidity:</span> We ensure adequate liquidity for our clients, allowing them easy and timely access to their funds when needed.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Right column: Full concept image -->
+                <div class="w-full lg:w-1/2 flex justify-center items-center">
+                    <img src="images/concept-diagram.png" alt="Hauberk Capital Concept" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bg-[#041B44] text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <!-- Mission and Vision Row - Centered -->
+            <div class="flex flex-row md:flex-row justify-center items-center md:items-start gap-12 md:gap-[350px] mb-16">
+                <!-- Mission Section -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-start">
+                    <div class="flex flex-col md:flex md:flex-row items-center">
+                        <img src="images/mission.svg" alt="Mission" class="mb-2 md:mb-0 mr-0 md:mr-4 w-12 md:w-auto">
+                        <h2 class="text-[22px] md:text-[48px] font-neue-extrabold text-white">MISSION</h2>
+                    </div>
+                    <p class="text-white md:pl-[70px] opacity-70 font-['Poppins'] font-bold text-[10.79px] md:text-[18px] leading-relaxed  md:max-w-md">
+                            Develop HNWI, Family Offices and Endowment's investment experience.
+                    </p>
+                </div>
+                
+                <!-- Vision Section -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-start">
+                    <div class="flex flex-col md:flex md:flex-row items-center">
+                        <img src="images/vision.svg" alt="Vision" class="mb-2 md:mb-0 mr-0 md:mr-4 w-12 md:w-auto">
+                        <h2 class="text-[22px] md:text-[48px] font-neue-extrabold text-white">VISION</h2>
+                    </div>
+                    <p class="text-white  md:pl-[80px] opacity-70 font-['Poppins'] font-bold text-[10.79px] md:text-[18px] leading-relaxed md:max-w-md">
+                        To provide outstanding, cohesive & sustainable investment approach.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Our Values Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-[32px] md:text-[40px] xl:text-[48px] font-neue-extrabold text-white">OUR VALUES</h2>
+            </div>
+            
+            <!-- Values Cards Grid - Top Row (3 cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <!-- Integrity Card -->
+                <div class="bg-[#041B44] border border-[#1A2F57] rounded-lg p-8 md:p-14 hover:border-[#D4AF37] transition-colors">
+                    <div class="flex items-start mb-2">
+                        <img src="images/integrity.svg" alt="Integrity" class=" mr-4">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Integrity</h3>
+                    </div>
+                    <p class="text-white opacity-70 pl-[75px] font-['Poppins'] text-[16px] leading-relaxed">
+                        Integrity is our philosophy for developing and building a relationship of trust and friendship with our clients.
+                    </p>
+                </div>
+                
+                <!-- Commitment Card -->
+                <div class="bg-[#041B44] border border-[#1A2F57] rounded-lg p-8 md:p-14 hover:border-[#D4AF37] transition-colors">
+                    <div class="flex items-start mb-2">
+                        <img src="images/commitment.svg" alt="Commitment" class=" mr-4">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Commitment</h3>
+                    </div>
+                    <p class="text-white opacity-70 pl-[75px] font-['Poppins'] text-[16px] leading-relaxed">
+                        We commit to our investors with fully managed, high-yield investment products catering to all levels of risk appetite.
+                    </p>
+                </div>
+                
+                <!-- Passion Card -->
+                <div class="bg-[#041B44] border border-[#1A2F57] rounded-lg p-8 md:p-14 hover:border-[#D4AF37] transition-colors">
+                    <div class="flex items-start mb-2">
+                        <img src="images/passion.svg" alt="Passion" class=" mr-4">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Passion</h3>
+                    </div>
+                    <p class="text-white opacity-70 pl-[75px] font-['Poppins'] text-[16px] leading-relaxed">
+                        Our genuine desire is to help you achieve your goals, dreams and aspirations. And to help you build, preserve and protect your wealth in support of these.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Accountability and Sustainability in separate div, centered -->
+            <div class="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto">
+                <!-- Accountability Card -->
+                <div class="bg-[#041B44] border border-[#1A2F57] rounded-lg p-8 md:p-14 hover:border-[#D4AF37] transition-colors md:w-1/2">
+                    <div class="flex items-start">
+                        <img src="images/accountability.svg" alt="Accountability" class=" mr-4">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Accountability</h3>
+                    </div>
+                    <p class="text-white opacity-70 pl-[70px] font-['Poppins'] text-[16px] leading-relaxed">
+                        We are responsible for helping our client achieve their financial goals. At Hauberk, we believe that a successful relationship is built on our capacity to help get our clients to their desired destinations.
+                    </p>
+                </div>
+                
+                <!-- Sustainability Card -->
+                <div class="bg-[#041B44] border border-[#1A2F57] rounded-lg p-8 md:p-14 hover:border-[#D4AF37] transition-colors md:w-1/2">
+                    <div class="flex items-start">
+                        <img src="images/sustainability.svg" alt="Sustainability" class=" mr-4">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Sustainability</h3>
+                    </div>
+                    <p class="text-white opacity-70 pl-[70px] font-['Poppins'] text-[16px] leading-relaxed">
+                        To meet the needs of the present generation without compromising the ability of future generation to meet their own needs. It involve the responsible use of natural resources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#041B44] text-white py-16 px-6 md:py-40 bg-[url('images/approach-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div class="container mx-auto px-4">
+            <!-- Section Title -->
+            <div class="text-center mb-12">
+                <h2 class="text-[32px] md:text-[40px] xl:text-[48px] font-neue-extrabold text-white">OUR APPROACH</h2>
+            </div>
+            
+            <!-- Approach Description -->
+            <div class="max-w-5xl mx-auto text-center mb-24">
+                <p class="text-white opacity-70 font-['Poppins'] font-regular text-[21.28px] leading-relaxed mb-6">
+                    We recognize the complexities of wealth advisory and are committed to providing top-tier service and expertise, assisting clients in making informed investment decisions. Our relationships are built on trust, mutual respect, and a dedication to quality service.
+                </p>
+                <p class="text-white opacity-70 font-['Poppins'] font-regular text-[21.28px] leading-relaxed">
+                    By leveraging advanced technology and continuous research and development, we deliver reliable, cost-effective solutions. We seek new investment opportunities, navigate economic fluctuations, and maximize returns through balanced, diversified portfolios.
+                </p>
+            </div>
+            
+            <!-- Approach Grid - Top Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6">
+                <!-- Client-Centric Focus -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Client-Centric Focus</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="client-centric">
+                            <i class="fas fa-chevron-down transform rotate-180 text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section" id="client-centric">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our top priority is meeting our clients' objectives and evolving needs.</br>
+                            - We align our services with the core values of our philosophy.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Trusted Relationships -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Trusted Relationships</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="trusted-relationships">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="trusted-relationships">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our long-term relationships with clients and partners are built on trust and mutual respect.</br>
+                            - We consistently provide reliable, cost-effective solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Approach Grid - Middle Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6">
+                <!-- Professional & Adaptive -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Professional & Adaptive</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="professional-adaptive">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="professional-adaptive">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            We are a professional organization that quickly adjusts to future investor demands.</br>
+                            - Our strategies are based on market analysis, inflation tracking, and defensive approaches.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Technological Innovation -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Technological Innovation</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="technological-innovation">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="technological-innovation">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our advanced technological capabilities enable us to develop customized solutions.</br>
+                            - We stay at the forefront of technological advancements through continuous research and development.    
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Approach Grid - Bottom Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- Culture of Growth and Innovation -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Culture of Growth and Innovation</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="culture-growth">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="culture-growth">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            We foster a culture that encourages continuous learning, innovation, and growth for both our team and clients.</br>
+                            - We are committed to staying ahead of market trends and evolving investor needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Investment &Growth Opportunities -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Investment &Growth Opportunities</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="investment-growth">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="investment-growth">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            We identify and capitalize on investment opportunities that align with our clients' goals and risk tolerance.</br>
+                            - We seek new investment opportunities, navigate economic fluctuations, and maximize returns through balanced, diversified portfolios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6">
+                <!-- Expert Financial Team -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Expert Financial Team</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="expert-team">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="expert-team">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            Our team consists of experienced financial professionals dedicated to providing expert guidance and solutions.</br>
+                            - We are committed to staying ahead of market trends and evolving investor needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Balanced Portfolio -->
+                <div class="border-b border-[#1A2F57] pb-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-[28px] font-['Poppins'] font-bold text-white">Balanced Portfolio</h3>
+                        <button class="text-[#D4AF37] toggle-content" data-id="balanced-portfolio">
+                            <i class="fas fa-chevron-down text-[25px]"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 content-section hidden" id="balanced-portfolio">
+                        <p class="text-white font-['Poppins'] font-regular text-[18px]">
+                            We create diversified portfolios that balance risk and return to help our clients achieve their financial objectives.</br>
+                            - We seek new investment opportunities, navigate economic fluctuations, and maximize returns through balanced, diversified portfolios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function toggleContent(button) {
+                const contentId = button.getAttribute('data-id');
+                const contentSection = document.getElementById(contentId);
+                const icon = button.querySelector('i');
+                
+                // Close all sections first
+                document.querySelectorAll('.content-section').forEach(section => {
+                    if (section.id !== contentId) {
+                        // Add smooth transition for closing
+                        if (!section.classList.contains('hidden')) {
+                            section.style.maxHeight = section.scrollHeight + 'px';
+                            setTimeout(() => {
+                                section.style.maxHeight = '0px';
+                                section.style.opacity = '0';
+                            }, 10);
+                            
+                            setTimeout(() => {
+                                section.classList.add('hidden');
+                                section.style.maxHeight = '';
+                                section.style.opacity = '';
+                            }, 300);
+                        }
+                        
+                        const sectionButton = document.querySelector(`[data-id="${section.id}"]`);
+                        if (sectionButton) {
+                            sectionButton.querySelector('i').classList.remove('rotate-180');
+                        }
+                    }
+                });
+                
+                // Toggle the clicked section with smooth animation
+                if (contentSection.classList.contains('hidden')) {
+                    // Opening the section
+                    contentSection.classList.remove('hidden');
+                    contentSection.style.maxHeight = '0px';
+                    contentSection.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = contentSection.scrollHeight + 'px';
+                        contentSection.style.opacity = '1';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = '';
+                    }, 300);
+                    
+                    icon.classList.add('rotate-180');
+                } else {
+                    // Closing the section
+                    contentSection.style.maxHeight = contentSection.scrollHeight + 'px';
+                    
+                    setTimeout(() => {
+                        contentSection.style.maxHeight = '0px';
+                        contentSection.style.opacity = '0';
+                    }, 10);
+                    
+                    setTimeout(() => {
+                        contentSection.classList.add('hidden');
+                        contentSection.style.maxHeight = '';
+                        contentSection.style.opacity = '';
+                    }, 300);
+                    
+                    icon.classList.remove('rotate-180');
+                }
+            }
+            
+            // Add event listeners to all toggle buttons
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add CSS for smooth transitions
+                const style = document.createElement('style');
+                style.textContent = `
+                    .content-section {
+                        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+                        overflow: hidden;
+                        opacity: 1;
+                    }
+                    .rotate-180 {
+                        transition: transform 0.3s ease;
+                        transform: rotate(180deg);
+                    }
+                    i.fas {
+                        transition: transform 0.3s ease;
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                document.querySelectorAll('.toggle-content').forEach(button => {
+                    button.addEventListener('click', function() {
+                        toggleContent(this);
+                    });
+                });
+            });
+        </script>
+    </section>
+
+    <footer class="bg-[#041B44] text-white py-8">
+        <div class="container mx-auto px-4">
+            <!-- Logo for mobile -->
+            <div class="block md:hidden mb-6">
+                <img src="images/logo.svg" alt="Hauberk Capital" class="h-full">
+            </div>
+            
+            <!-- Mobile navigation accordion -->
+            <div class="md:hidden">
+                <!-- Home dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Home</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="about-us.html" class="text-white text-xl font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="text-white text-xl font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="text-white text-xl font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="text-white text-xl font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services & Programs dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Services & Programs</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="text-white text-xl font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="text-white text-xl font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="text-white text-xl font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="text-white text-xl font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-[20.96px] text-[#D4AF37] font-sf-pro-medium">Contact Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <ul class="hidden dropdown-content pb-4 space-y-3 text-xl">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-6 h-6 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-6 h-6 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-6 h-6 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Follow Us dropdown -->
+                <div class="border-b border-[#1A2F57]">
+                    <div class="flex justify-between items-center py-4">
+                        <h3 class="text-xl text-[#D4AF37] font-sf-pro-medium">Follow Us</h3>
+                        <button class="text-white dropdown-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="hidden dropdown-content pb-4">
+                        <div class="flex space-x-4 mb-6 pt-2">
+                            <a href="#" class="text-white">
+                                <img src="images/fb.svg" class="w-10 h-10" alt="Facebook icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/in.svg" class="w-10 h-10" alt="Instagram icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/linkedin.svg" class="w-10 h-10" alt="LinkedIn icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/x.svg" class="w-10 h-10" alt="Twitter icon">
+                            </a>
+                            <a href="#" class="text-white">
+                                <img src="images/yt.svg" class="w-10 h-10" alt="YouTube icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop footer - keep existing code -->
+            <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- ... existing code for desktop ... -->
+                <!-- Column 1: Home -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Home</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about-us.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">About Us</a></li>
+                        <li><a href="resource-center.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Resource Center</a></li>
+                        <li><a href="questions.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">FAQ's</a></li>
+                        <li><a href="careers.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2: Services & Programs -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Services & Programs</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="governance-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Governance Consultancy</a></li>
+                        <li><a href="wealth-planning-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Wealth planning</a></li>
+                        <li><a href="investment-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">Investment Consultancy</a></li>
+                        <li><a href="cio-services.html" class="hover:text-[#D4AF37] transition-colors font-sf-pro-regular">CIO Office Service</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Contact Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <img src="images/phone.svg" class="w-4 h-4 mt-1 mr-3" alt="Phone icon">
+                            <span class="font-sf-pro-regular">+971 4 5182591 / 2</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
+                            <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
+                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Follow Us -->
+                <div>
+                    <h3 class="text-xl text-[#D4AF37] mb-6 font-sf-pro-medium">Follow Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/fb.svg" class="w-5 h-5" alt="Facebook icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/in.svg" class="w-5 h-5" alt="Instagram icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/linkedin.svg" class="w-5 h-5" alt="LinkedIn icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/x.svg" class="w-5 h-5" alt="Twitter icon">
+                        </a>
+                        <a href="#" class="text-white hover:text-[#D4AF37]">
+                            <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Policy links on mobile - MOVED ABOVE the newsletter -->
+            <div class="md:hidden pt-6 border-t border-gray-700 mb-8">
+                <div class="flex flex-wrap justify-center space-x-2 mb-6">
+                    <a href="privacy-policy.html" class="text-white font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            
+            </div>
+            
+            <!-- Newsletter subscribe -->
+            <div class="mt-6 mb-10 md:w-[50%]">
+                <div class="flex flex-row gap-2">
+                    <input 
+                        type="email" 
+                        placeholder="Subscribe to Our Newsletter" 
+                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                    >
+                    <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
+                        REQUEST A MEETING
+                    </button>
+                </div>
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white font-sf-pro-regular">
+                ADGM Financial Regulated Company, FSP no. 220131
+            </div>
+            <div class="md:hidden text-center text-[13.77px] text-white mb-4 font-sf-pro-regular">
+                © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+            </div>
+            <!-- Footer Bottom / Copyright - DESKTOP ONLY -->
+            <div class="hidden md:flex pt-8 border-t border-gray-700 flex-col md:flex-row justify-between items-center text-sm">
+                <div class="mb-4 md:mb-0 text-white text-center md:text-left font-sf-pro-regular">
+                    ADGM Financial Regulated Company, FSP no. 220131
+                </div>
+                <div class="text-white mb-4 md:mb-0 text-center font-sf-pro-medium">
+                    © <script>document.write(new Date().getFullYear())</script> Hauberk Capital, All rights reserved.
+                </div>
+                <div class="flex space-x-2 md:space-x-6 mt-4 md:mt-0 justify-center">
+                    <a href="privacy-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Privacy Policy</a>
+                    <span class="text-white">|</span>
+                    <a href="terms-conditions.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Terms & Conditions</a>
+                    <span class="text-white">|</span>
+                    <a href="cookie-policy.html" class="text-white hover:text-[#D4AF37] font-sf-pro-medium">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+<script src="index.js"></script>
+</body>
+</html>
