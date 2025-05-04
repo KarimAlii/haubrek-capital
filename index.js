@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('DOMContentLoaded', function() {
         const burgerMenu = document.getElementById('burger-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu-1');
         
         burgerMenu.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
