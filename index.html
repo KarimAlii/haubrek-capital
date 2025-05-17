@@ -23,43 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Neue-Bold';
-            src: url('fonts/Neue-Bold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Neue-ExtraBold';
-            src: url('fonts/Neue-ExtraBold.otf') format('opentype');
-            font-weight: 800;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* Fix for missing fonts - add a fallback URL format */
-        @font-face {
-            font-family: 'Neue-Bold';
-            src: url('fonts/Neue-Bold.otf') format('opentype'),
-                 url('fonts/Neue-Bold.woff2') format('woff2'),
-                 url('fonts/Neue-Bold.woff') format('woff');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Neue-ExtraBold';
-            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
-                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
-                 url('fonts/Neue-ExtraBold.woff') format('woff');
-            font-weight: 800;
-            font-style: normal;
-            font-display: swap;
-        }
-
         /* Custom font classes for easier use */
         .font-neue-bold {
             font-family: 'Neue-Bold', sans-serif !important;
@@ -83,49 +46,6 @@
         .bg-navy-800 {
             background-color: #2a2f3e;
         }
-
-        /* Neue font definitions */
-        @font-face {
-            font-family: 'Neue-Bold';
-            src: url('fonts/Neue-Bold.otf') format('opentype'),
-                 url('fonts/Neue-Bold.woff2') format('woff2'),
-                 url('fonts/Neue-Bold.woff') format('woff');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Neue-ExtraBold';
-            src: url('fonts/Neue-ExtraBold.otf') format('opentype'),
-                 url('fonts/Neue-ExtraBold.woff2') format('woff2'),
-                 url('fonts/Neue-ExtraBold.woff') format('woff');
-            font-weight: 800;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* SF Pro Display font definitions */
-        @font-face {
-            font-family: 'SF Pro Display';
-            src: url('fonts/SFProDisplay-Medium.otf') format('opentype'),
-                 url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
-                 url('fonts/SFProDisplay-Medium.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'SF Pro Display';
-            src: url('fonts/SFProDisplay-Regular.otf') format('opentype'),
-                 url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
-                 url('fonts/SFProDisplay-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
         /* Utility classes for easy application */
         .font-neue-bold {
             font-family: 'Neue-Bold', sans-serif;
@@ -152,9 +72,9 @@
 </head>
 <body class="bg-[#041B44]">
     <!-- Navigation -->
-    <header class="absolute w-full z-10">
+    <header class="fixed w-full z-10">
         <nav class="bg-black/20 backdrop-blur-sm text-white p-4">
-            <div class="container mx-auto">
+            <div class="max-w-[1512px] mx-auto">
                 <!-- Desktop and Mobile header -->
                 <div class="flex justify-between items-center">
                     <div>
@@ -170,57 +90,57 @@
                     <div class="hidden lg:flex items-center space-x-6">
                         <ul class="flex items-center space-x-6">
                             <li class="group relative">
-                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                <a href="index.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3 font-['Poppins']">
                                     Home
                                 </a>
                             </li>
                             <li class="group relative">
-                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                <a href="about-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3 font-['Poppins']">
                                     About us
                                     <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
                                 </a>
                                 <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
-                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Board of Directors</a>
-                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">App</a>
+                                    <a href="board-of-directors.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Board of Directors</a>
+                                    <a href="app.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">App</a>
 
                                 </div>
                             </li>
                             <li class="group relative">
-                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                <a href="services.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3 font-['Poppins']">
                                     Services
                                     <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
                                 </a>
                                 <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
-                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Governance Services</a>
-                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Wealth Planning Services</a>
-                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Investment Services</a>
-                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">CIO Services</a>
+                                    <a href="governance-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Governance Services</a>
+                                    <a href="wealth-planning-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Wealth Planning Services</a>
+                                    <a href="investment-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Investment Services</a>
+                                    <a href="cio-services.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">CIO Services</a>
                                 </div>
                             </li>
                             <li class="group relative">
-                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                <a href="resource-center.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3 font-['Poppins']">
                                     Resources Center
                                     <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 group-hover:rotate-180 flex items-center"></i>
                                 </a>
                                 <div class="absolute hidden group-hover:block bg-[#1a1f2e] min-w-[200px] py-2">
-                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Articles</a>
-                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">E-Books</a>
-                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Glossary</a>
-                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">Tools</a>
-                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white">FAQ's</a>
+                                    <a href="articles.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Articles</a>
+                                    <a href="e-book.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">E-Books</a>
+                                    <a href="glossary.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Glossary</a>
+                                    <a href="tools.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">Tools</a>
+                                    <a href="questions.html" class="block px-4 py-2 text-[0.8rem] hover:bg-[#D4AF37] hover:text-white font-['Poppins']">FAQ's</a>
                                 </div>
                             </li>
                             <li class="group relative">
-                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3">
+                                <a href="contact-us.html" class="text-[0.8rem] xl:text-[0.973rem] hover:text-gray-300 flex items-center gap-3 font-['Poppins']">
                                     Contact Us
                                 </a>
                             </li>
-                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem]">
+                            <div class="flex items-center space-x-2 ml-6 pl-6 text-[0.75rem] sm:text-[0.875rem] font-['Poppins']">
                                 <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
                                 <span class="text-[#BF9874]">|</span>
                                 <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
                             </div>
-                            <li><button class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold">CLIENT'S HUB</button></li>
+                            <li><a href="https://hauberkcapital.moxo.com/web/910" class="bg-[#D4AF37] text-white px-4 py-2 text-[0.8rem] sm:text-[0.875rem] xl:text-[0.973rem] hidden xl:block rounded-[10px] font-neue-extrabold inline-block">CLIENT'S HUB</a></li>
                         </ul>
                     </div>
                 </div>
@@ -229,55 +149,55 @@
                 <div id="mobile-menu" class="lg:hidden hidden bg-black/20 backdrop-blur-sm mt-4 p-4 rounded">
                     <ul class="flex flex-col space-y-4">
                         <li class="group">
-                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                            <a href="index.html" class="text-base hover:text-gray-300 flex items-center justify-between font-['Poppins']">
                                 Home
                             </a>
                         </li>
                         <li class="group">
                             <div class="flex items-center justify-between">
-                                <a href="about-us.html" class="text-base hover:text-gray-300">About us</a>
+                                <a href="about-us.html" class="text-base hover:text-gray-300 font-['Poppins']">About us</a>
                                 <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
                             </div>
                             <div class="hidden pl-4 mt-2">
-                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Board of Directors</a>
+                                <a href="board-of-directors.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Board of Directors</a>
                             </div>
                         </li>
                         <li class="group">
                             <div class="flex items-center justify-between">
-                                <a href="services.html" class="text-base hover:text-gray-300">Services</a>
+                                <a href="services.html" class="text-base hover:text-gray-300 font-['Poppins']">Services</a>
                                 <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
                             </div>
                             <div class="hidden pl-4 mt-2">
-                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Governance Services</a>
-                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Wealth Planning Services</a>
-                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Investment Services</a>
-                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">CIO Services</a>
+                                <a href="governance-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Governance Services</a>
+                                <a href="wealth-planning-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Wealth Planning Services</a>
+                                <a href="investment-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Investment Services</a>
+                                <a href="cio-services.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">CIO Services</a>
                             </div>
                         </li>
                         <li class="group">
                             <div class="flex items-center justify-between">
-                                <a href="resource-center.html" class="text-base hover:text-gray-300">Resources Center</a>
+                                <a href="resource-center.html" class="text-base hover:text-gray-300 font-['Poppins']">Resources Center</a>
                                 <i class="fas fa-caret-down text-[0.9375rem] transition-transform duration-200 cursor-pointer" onclick="toggleDropdown(this)"></i>
                             </div>
                             <div class="hidden pl-4 mt-2">
-                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Articles</a>
-                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">E-Books</a>
-                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Glossary</a>
-                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">Tools</a>
-                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37]">FAQ's</a>
+                                <a href="articles.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Articles</a>
+                                <a href="e-book.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">E-Books</a>
+                                <a href="glossary.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Glossary</a>
+                                <a href="tools.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">Tools</a>
+                                <a href="questions.html" class="block py-2 text-[0.8rem] hover:text-[#D4AF37] font-['Poppins']">FAQ's</a>
                             </div>
                         </li>
                         <li class="group">
-                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between">
+                            <a href="contact-us.html" class="text-base hover:text-gray-300 flex items-center justify-between font-['Poppins']">
                                 Contact Us
                             </a>
                         </li>
-                        <div class="flex items-center space-x-2 py-2 text-base">
+                        <div class="flex items-center space-x-2 py-2 text-base font-['Poppins']">
                             <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">EN</a>
                             <span class="text-[#BF9874]">|</span>
                             <a href="#" class="text-[#BF9874] hover:text-[#FFFFFF]">AR</a>
                         </div>
-                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full">CLIENT'S HUB</button></li>
+                        <li><button class="bg-[#D4AF37] text-white px-4 py-2 rounded-[10px] w-full font-neue-extrabold">CLIENT'S HUB</button></li>
                     </ul>
                 </div>
             </div>
@@ -299,10 +219,10 @@
                         </div>
                         <div class="absolute inset-0 "></div>
                         <div class="relative h-full flex items-center justify-center">
-                            <div class="container mx-auto text-center">
+                            <div class="max-w-[1512px] mx-auto text-center">
                                 <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">YOUR WEALTH<br/>JOURNEY PARTNERS</h1>
                                 <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently.Learn more<br class="hidden sm:block"/> about how we can help you achieve financial success.</p>
-                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                                <a href="about-us.html#who-we-are-section" class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px] inline-block">LEARN MORE</a>
                             </div>
                         </div>
                     </div>
@@ -313,10 +233,10 @@
                         </div>
                         <div class="absolute inset-0 "></div>
                         <div class="relative h-full flex items-center justify-center">
-                            <div class="container mx-auto text-center">
+                            <div class="max-w-[1512px] mx-auto text-center">
                                 <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">TAILORED PROGRAM FOR<br class="hidden sm:block"/>GROWING YOUR WEALTH</h1>
                                 <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently.Learn more<br class="hidden sm:block"/> about how we can help you succeed.</p>
-                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                                <a href="resource-center.html" class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px] inline-block">LEARN MORE</a>
                             </div>
                         </div>
                     </div>
@@ -327,10 +247,10 @@
                         </div>
                         <div class="absolute inset-0 "></div>
                         <div class="relative h-full flex items-center justify-center">
-                            <div class="container mx-auto text-center">
+                            <div class="max-w-[1512px] mx-auto text-center">
                                 <h1 class="text-[35px] xl:text-[70px] leading-[53.7px] xl:leading-[87px] font-neue-extrabold mb-4">SECURE AND EXPAND<br/> YOUR WEALTH</h1>
                                 <p class="mb-8 text-[17px] xl:text-[18px] text-[#FFFFFF] opacity-70 font-['Poppins'] font-regular">Invest smartly, grow steadily, and live confidently. Learn more<br class="hidden sm:block"/> about how we can help you achieve financial success.</p>
-                                <button class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px]">LEARN MORE</button>
+                                <a href="services.html" class="bg-[#D4AF37] px-6 py-3 font-neue-extrabold rounded-lg font-neue-bold text-[18px] inline-block">LEARN MORE</a>
                             </div>
                         </div>
                     </div>
@@ -338,7 +258,7 @@
                 
                 <!-- Mobile Navigation (Dots and Arrows) -->
                 <div class="lg:hidden absolute px-4 pb-10 bottom-8 w-full">
-                    <div class="container mx-auto px-4 flex items-center justify-between">
+                    <div class="max-w-[1512px] mx-auto px-4 flex items-center justify-between">
                         <!-- Dots on the left -->
                         <div class="flex space-x-2">
                             <button class="mobile-dot w-4 h-4 rounded-full bg-gray-400 hover:bg-[#D4AF37]" onclick="goToSlide(0)"></button>
@@ -380,7 +300,7 @@
 
     <!-- How We Can Assist Section -->
     <section class="bg-white py-8 md:py-24">
-        <div class="container mx-auto px-4">
+        <div class="max-w-[1512px] mx-auto px-4">
             <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                 <!-- Left Side: Text and Service Buttons -->
                 <div class="mb-8 lg:mb-0">
@@ -390,7 +310,7 @@
                     </p>
                     
                     <!-- Our Services Button (desktop only) -->
-                    <button class="hidden lg:block bg-[#D4AF37] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg mb-8 md:mb-12 font-neue-extrabold xl:text-[18px]">OUR SERVICES</button>
+                    <button onclick="window.location.href='services.html'" class="hidden lg:block bg-[#D4AF37] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg mb-8 md:mb-12 font-neue-extrabold xl:text-[18px]">OUR SERVICES</button>
 
                     <!-- Mobile Image (shown only on mobile) -->
                     <div class="block lg:hidden mb-6">
@@ -453,7 +373,7 @@
         </div>
 
         <!-- Content Container -->
-        <div class="container mx-auto px-4 relative">
+        <div class="max-w-[1512px] mx-auto px-4 relative">
             <div class="flex flex-col lg:flex-row items-center gap-8">
                 <!-- Left Side: Text and Icons -->
                 <div class="lg:w-1/2 text-white flex flex-col items-center lg:items-start">
@@ -465,9 +385,9 @@
                     </p>
 
                     <!-- Button (desktop only) -->
-                    <button class="hidden lg:block bg-[#D4AF37] text-[18px] text-white px-6 py-3 rounded-lg font-neue-extrabold hover:opacity-90 transition-all">
+                    <a href="contact-us.html" class="hidden lg:block bg-[#D4AF37] text-[18px] text-white px-6 py-3 rounded-lg font-neue-extrabold hover:opacity-90 transition-all text-center">
                         CHECK OUR PROGRAMS
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Right Side: Image -->
@@ -494,7 +414,7 @@
             <img src="images/directors-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
         </div>
         
-        <div class="container mx-auto px-4 relative">
+        <div class="max-w-[1512px] mx-auto px-4 relative">
             <h2 class="text-[32px] leading-[33.5px] md:text-4xl xl:text-[48px] xl:leading-[62px] font-neue-extrabold text-[#041B44] mb-4 text-center md:text-center">BOARD OF<br class="md:hidden"/> DIRECTORS</h2>
             
             <p class="text-[#041B44] text-[16px] md:text-[18px] font-['Poppins'] tracking-[0] opacity-60 mb-12 mx-auto text-center md:text-start md:px-0">
@@ -593,7 +513,7 @@
             <img src="images/record-bg.png" alt="Pattern Background" class="w-full h-full object-cover"/>
         </div>
         
-        <div class="container mx-auto px-4 relative">
+        <div class="max-w-[1512px] mx-auto px-4 relative">
             <h2 class=" text-[32px] md:text-4xl xl:text-[54px] mt-[-50px] md:mt-0 pl-10 pr-10 md:pl-0 md:pr-0 font-neue-extrabold xl:mb-10 text-white text-center sm:text-left">PROVEN TRACK RECORD</h2>
             
             <p class="text-[16px] md:text-[18px] xl:text-[16.82px] font-['Poppins'] tracking-[0] mb-10 max-w-3xl text-center sm:text-left">
@@ -856,7 +776,7 @@
         <h1 class="text-[25px] md:text-[48px] font-geometos-neue font-extrabold md:leading-[62px] text-[#041B44] mb-16 md:mb-32 leading-[48px]">HOW CAN WE START OUR <br/> JOURNEY TOGETHER?</h1>
         
         <!-- Desktop version - hidden on mobile -->
-        <div class="hidden md:grid max-w-[1300px] mx-auto grid-cols-4 lg:grid-cols-8 gap-y-2 gap-x-2 justify-items-center">
+        <div class="hidden md:grid max-w-[1512px] mx-auto grid-cols-4 lg:grid-cols-8 gap-y-2 gap-x-2 justify-items-center">
           <!-- Step Item Template -->
           <div class="flex flex-col items-center">
             <div class="bg-blue-900 text-white rounded-full w-32 h-[110px] flex items-center justify-center mb-4">
@@ -935,7 +855,7 @@
 
     <!-- Insights Section -->
     <section class="py-16 bg-[#041B44] text-white">
-        <div class="container mx-auto px-4">
+        <div class="max-w-[1512px] mx-auto px-4">
             <h2 class="text-[32px] xl:text-[54px] xl:font-neue-bold font-neue-extrabold text-center mb-16">OUR INSIGHTS</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 px-6 md:px-0">
@@ -991,14 +911,14 @@
     </section> 
 
     <!-- Ready To Start Growing Section -->
-    <section class="relative md:h-[60vh] pt-[10%] text-white overflow-hidden">
+    <section class="relative md:h-[100vh] md:max-h-[557px] text-white overflow-hidden flex items-end">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="images/meeting-bg.png" alt="NYC Skyline" class="w-full h-full object-cover object-center"/>
         </div>
         
         <!-- Content Container -->
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-[1512px] mx-auto px-6 relative z-10 w-full py-16">
             <div class="flex flex-col md:flex-row items-center mx-auto">
                 <!-- Left Content -->
                 <div class="mb-10 md:mb-0 w-full">
@@ -1162,9 +1082,9 @@
                             <img src="images/mail.svg" class="w-4 h-4 mt-1 mr-3" alt="Email icon">
                             <span class="font-sf-pro-regular">info@hauberkcapital.com</span>
                         </li>
-                        <li class="flex items-start">
-                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3" alt="Location icon">
-                            <span class="font-sf-pro-regular">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
+                        <li class="flex items-start max-w-[250px]">
+                            <img src="images/location.svg" class="w-4 h-4 mt-1 mr-3 flex-shrink-0" alt="Location icon">
+                            <span class="font-sf-pro-regular text-sm">Al Sila Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates</span>
                         </li>
                     </ul>
                 </div>
@@ -1189,6 +1109,19 @@
                             <img src="images/yt.svg" class="w-5 h-5" alt="YouTube icon">
                         </a>
                     </div>
+                    <!-- Download App Section -->
+                    <div class="mb-2">
+                        <div class="text-[#D4AF37] text-base font-sf-pro-medium mb-2">Download App</div>
+                        <div class="flex items-center justify-center bg-[#D4AF37] rounded-[10px] w-[180px] h-[56px]">
+                            <a href="#" class="flex-1 flex items-center justify-center">
+                                <img src="images/ios.svg" alt="Apple" class="w-10 h-10" />
+                            </a>
+                            <div class="w-px h-8 bg-white/60 mx-2"></div>
+                            <a href="#" class="flex-1 flex items-center justify-center">
+                                <img src="images/android.svg" alt="Android" class="w-10 h-10" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1206,14 +1139,14 @@
             
             <!-- Newsletter subscribe -->
             <div class="mt-6 mb-10 md:w-[50%]">
-                <div class="flex flex-row gap-2">
+                <div class="flex flex-col md:flex-row gap-2">
                     <input 
                         type="email" 
                         placeholder="Subscribe to Our Newsletter" 
-                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37]"
+                        class="flex-1 bg-transparent border border-gray-600 rounded py-3 md:py-2 pl-[20px] pr-[40px] text-base md:text-sm focus:outline-none focus:border-[#D4AF37] mb-2 md:mb-0"
                     >
-                    <button class="bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold">
-                        REQUEST A MEETING
+                    <button class="uppercase bg-[#D4AF37] text-white px-[8px] py-[10px] md:py-[10px] rounded-lg text-[13px] xl:text-[13px] font-neue-extrabold w-full md:w-auto">
+                        Subscribe
                     </button>
                 </div>
             </div>

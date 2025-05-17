@@ -2,6 +2,8 @@
 let currentSlide = 0;
 const slider = document.getElementById('slider');
 const slides = 3;
+let slideInterval;
+let isHovering = false;
 
 function updateSlider() {
     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -35,8 +37,32 @@ function updateDots() {
     });
 }
 
-// Optional: Auto-slide every 5 seconds
-setInterval(() => moveSlide(1), 5000);
+// Start auto-slide
+function startSlideInterval() {
+    slideInterval = setInterval(() => {
+        if (!isHovering) {
+            moveSlide(1);
+        }
+    }, 5000);
+}
+
+// Initialize slider with hover pause functionality
+document.addEventListener('DOMContentLoaded', () => {
+    if (slider) {
+        // Pause on hover
+        slider.addEventListener('mouseenter', () => {
+            isHovering = true;
+        });
+        
+        // Resume on mouse leave
+        slider.addEventListener('mouseleave', () => {
+            isHovering = false;
+        });
+        
+        // Start the auto-slide
+        startSlideInterval();
+    }
+});
 
 // Burger menu functionality
 const burgerMenu = document.getElementById('burger-menu');
@@ -55,22 +81,26 @@ const serviceData = [
     {
         title: "GOVERNANCE ADVISORY",
         description: "The investment offices and Endowment funds for HNWI, Family Offices, and Endowments are a strategic vehicle for enterprising stakeholders to achieve their important goals, from wealth building to talent development to social impact among others.",
-        image: "images/assist1.png"
+        image: "images/assist1.png",
+        url: "governance-services.html"
     },
     {
         title: "WEALTH PLANNING",
         description: "we differentiate ourselves through an innovative approach to wealth governance that prioritizes customization, strategic alignment, and sustainable outcomes. We recognize that each client, whether an HNWI, Family Office, or Endowment, presents unique challenges and aspirations.",
-        image: "images/assist2.png"
+        image: "images/assist2.png",
+        url: "wealth-planning-services.html"
     },
     {
         title: "STRATEGIC INVESTMENT ADVISORY",
         description: "Based on the client investment policy statement and asset class objectives, criteria, and benchmark we start our due diligence process to choose the right investment manager who will manage the strategy, our focus is to choose the right managers who can lead the process efficiently and on reasonable management cost structure.",
-        image: "images/assist3.png"
+        image: "images/assist3.png",
+        url: "investment-services.html"
     },
     {
         title: "CIO OFFICE SERVICES",
         description: "It is important to start the initial discussion with the clients to understand their long-term needs and objectives of the investment management process and management style, our CIO office services offer HNWI, Family Offices, and Endowments a complete investment office outsourcing solutions ",
-        image: "images/assist4.png"
+        image: "images/assist4.png",
+        url: "cio-services.html"
     }
 ];
 
@@ -93,7 +123,7 @@ function updateServiceContent(index) {
                         <p class="text-[1rem] font-['Poppins'] text-white">${data.description}</p>
                     </div>
                     <div class="flex justify-end mt-4">
-                        <button class="text-[#D4AF37] font-neue-bold text-sm hover:opacity-80 transition-all">Read More</button>
+                        <a href="${data.url}" class="text-[#D4AF37] font-neue-bold text-sm hover:opacity-80 transition-all">Read More</a>
                     </div>
                 </div>
             </div>
@@ -105,11 +135,13 @@ function updateServiceContent(index) {
         const mobileImage = document.querySelector('.block.lg\\:hidden.mb-6 img');
         const mobileTitle = document.querySelector('.block.lg\\:hidden.mb-6 h3');
         const mobileDesc = document.querySelector('.block.lg\\:hidden.mb-6 p');
+        const mobileReadMore = document.querySelector('.block.lg\\:hidden.mb-6 a');
         
-        if (mobileImage && mobileTitle && mobileDesc) {
+        if (mobileImage && mobileTitle && mobileDesc && mobileReadMore) {
             mobileImage.src = data.image;
             mobileTitle.textContent = data.title;
             mobileDesc.textContent = data.description;
+            mobileReadMore.href = data.url;
         }
     }
 
@@ -505,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('DOMContentLoaded', function() {
         const burgerMenu = document.getElementById('burger-menu');
-        const mobileMenu = document.getElementById('mobile-menu-1');
+        const mobileMenu = document.getElementById('mobile-menu1');
         
         burgerMenu.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
